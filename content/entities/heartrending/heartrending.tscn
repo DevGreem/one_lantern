@@ -1,42 +1,116 @@
 [gd_scene format=3 uid="uid://cvbvier01rle3"]
 
 [ext_resource type="PackedScene" uid="uid://cyrsrs3awowdg" path="res://content/entities/entity.tscn" id="1_0jw7e"]
-[ext_resource type="Script" uid="uid://6q5kx66wrigb" path="res://components/resources/limited_value.gd" id="2_8hxiy"]
+[ext_resource type="Script" uid="uid://c0qwhkw1nkdob" path="res://content/entities/heartrending/heartrending.gd" id="2_fa17q"]
 [ext_resource type="Texture2D" uid="uid://cilmy1sfr025m" path="res://content/entities/heartrending/heartrending.png" id="3_8hxiy"]
-[ext_resource type="Script" uid="uid://bso22l6igjkib" path="res://resources/entities/entity_data.gd" id="3_rnfec"]
+[ext_resource type="Resource" uid="uid://cghb3lu8grdre" path="res://content/entities/heartrending/heartrending.tres" id="3_rnfec"]
 
-[sub_resource type="Resource" id="Resource_16p5b"]
-script = ExtResource("2_8hxiy")
-current_value = 3.0
-max_value = 3.0
-metadata/_custom_type_script = "uid://6q5kx66wrigb"
+[sub_resource type="AtlasTexture" id="AtlasTexture_fe1mh"]
+atlas = ExtResource("3_8hxiy")
+region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="Resource" id="Resource_ps3jo"]
-script = ExtResource("3_rnfec")
-id = "heartrending"
-name = "Heartrending"
-health = SubResource("Resource_16p5b")
-speed = 50.0
-texture = ExtResource("3_8hxiy")
-scene = "uid://cvbvier01rle3"
-metadata/_custom_type_script = "uid://bso22l6igjkib"
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtbdo"]
+atlas = ExtResource("3_8hxiy")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xrf82"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fe1mh")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fe1mh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtbdo")
+}],
+"loop": 1,
+"name": &"moving",
+"speed": 10.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrf82"]
-size = Vector2(92, 103)
+size = Vector2(50, 103)
+
+[sub_resource type="Animation" id="Animation_rnfec"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:can_move")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_16p5b"]
+resource_name = "move"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:can_move")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [&"moving", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"default", 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ps3jo"]
+_data = {
+&"RESET": SubResource("Animation_rnfec"),
+&"move": SubResource("Animation_16p5b")
+}
 
 [node name="Heartrending" unique_id=588095885 instance=ExtResource("1_0jw7e")]
-info = SubResource("Resource_ps3jo")
+script = ExtResource("2_fa17q")
+info = ExtResource("3_rnfec")
+can_move = false
 
-[node name="Sprite2D" parent="." index="0" unique_id=598897133]
-texture = ExtResource("3_8hxiy")
+[node name="Sprite" parent="." index="0" unique_id=1561370122]
+sprite_frames = SubResource("SpriteFrames_xrf82")
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=1939832832]
-position = Vector2(0, 3.5)
+position = Vector2(-4, 3.5)
 shape = SubResource("RectangleShape2D_xrf82")
 
 [node name="OnScreen" parent="." index="2" unique_id=992317005]
 position = Vector2(0, 3.5)
-rect = Rect2(-46, -51.5, 92, 103)
+rect = Rect2(-25, -51.5, 50, 103)
+
+[node name="Animation" parent="." index="3" unique_id=1117126664]
+libraries/ = SubResource("AnimationLibrary_ps3jo")
 
 [connection signal="screen_entered" from="OnScreen" to="." method="_on_enter_screen"]
 [connection signal="screen_exited" from="OnScreen" to="." method="_on_exit_screen"]

@@ -33,4 +33,5 @@ func _physics_process(delta: float) -> void:
 	for id in entities:
 		var entity := entities[id]
 		
-		entity.info.health.current_value -= delta
+		if entity.into_screen:
+			entity.info.health.current_value -= delta

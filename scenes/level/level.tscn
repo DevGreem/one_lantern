@@ -1,9 +1,29 @@
 [gd_scene format=4 uid="uid://cevau2t0nq53h"]
 
+[ext_resource type="Script" uid="uid://c7e18hxe68j3t" path="res://scenes/level/level.gd" id="1_hnne4"]
 [ext_resource type="Texture2D" uid="uid://dk8ido2j8vgm4" path="res://assets/map/grass.png" id="1_nbgty"]
-[ext_resource type="Script" uid="uid://dlc61o8647hm0" path="res://scenes/level/auto_show.gd" id="1_qkmgm"]
+[ext_resource type="Script" uid="uid://dlc61o8647hm0" path="res://components/nodes/canvas_item/toggle_canvas_item_visibility.gd" id="1_qkmgm"]
+[ext_resource type="Script" uid="uid://byd5rmgrxklrf" path="res://resources/entities_container_data.gd" id="2_tf2q7"]
+[ext_resource type="PackedScene" uid="uid://co4sna7lm65ln" path="res://scenes/win_menu/win.tscn" id="2_xv074"]
 [ext_resource type="PackedScene" uid="uid://bjpehthjlm6xn" path="res://content/entities/player/player.tscn" id="3_i166f"]
-[ext_resource type="PackedScene" uid="uid://cvbvier01rle3" path="res://content/entities/heartrending/heartrending.tscn" id="4_qkmgm"]
+[ext_resource type="Script" uid="uid://bucuxfvra17cc" path="res://resources/level_data.gd" id="3_pe1ox"]
+[ext_resource type="PackedScene" uid="uid://yd2jes1rxap7" path="res://scenes/lose_menu/lose.tscn" id="3_sytrn"]
+[ext_resource type="Script" uid="uid://b5a5vaipxvh58" path="res://scenes/level/entities_container.gd" id="4_hnne4"]
+[ext_resource type="Script" uid="uid://cqse8hivi4qt2" path="res://components/nodes/point_light/no_rotable_light.gd" id="5_wcngd"]
+
+[sub_resource type="Resource" id="Resource_sytrn"]
+script = ExtResource("2_tf2q7")
+time_between_enemy_spawns = 5.0
+range_time_between_spawns = 1.0
+range_between_spawns = 100.0
+cantity_between_spawns = 3
+metadata/_custom_type_script = "uid://byd5rmgrxklrf"
+
+[sub_resource type="Resource" id="Resource_xv074"]
+script = ExtResource("3_pe1ox")
+time_to_survive = 6.5
+entities_data = SubResource("Resource_sytrn")
+metadata/_custom_type_script = "uid://bucuxfvra17cc"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i166f"]
 texture = ExtResource("1_nbgty")
@@ -14,7 +34,25 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_i166f")
 
+[sub_resource type="Gradient" id="Gradient_nbgty"]
+offsets = PackedFloat32Array(0, 0.41566265)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xv074"]
+gradient = SubResource("Gradient_nbgty")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Level" type="Node2D" unique_id=1810711277]
+script = ExtResource("1_hnne4")
+info = SubResource("Resource_xv074")
+
+[node name="Menus" type="CanvasLayer" parent="." unique_id=492087778]
+process_mode = 3
+
+[node name="Win" parent="Menus" unique_id=18758931 instance=ExtResource("2_xv074")]
+
+[node name="Lose" parent="Menus" unique_id=1937533335 instance=ExtResource("3_sytrn")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1286903451]
 visible = false
@@ -30,9 +68,17 @@ tile_set = SubResource("TileSet_obaep")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=906255868]
 
+[node name="AroundLight" type="PointLight2D" parent="." unique_id=487850595]
+energy = 0.7
+texture = SubResource("GradientTexture2D_xv074")
+texture_scale = 5.67
+script = ExtResource("5_wcngd")
+metadata/_edit_lock_ = true
+
 [node name="Entities" type="Node" parent="." unique_id=593929475]
+script = ExtResource("4_hnne4")
 
 [node name="Player" parent="Entities" unique_id=1273766590 instance=ExtResource("3_i166f")]
 
-[node name="Heartrending" parent="Entities" unique_id=588095885 instance=ExtResource("4_qkmgm")]
-position = Vector2(-736, 406)
+[node name="Timer" type="Timer" parent="." unique_id=1849058828]
+one_shot = true

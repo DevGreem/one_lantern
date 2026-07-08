@@ -10,12 +10,42 @@ current_value = 3.0
 max_value = 3.0
 metadata/_custom_type_script = "uid://6q5kx66wrigb"
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fe1mh"]
+atlas = ExtResource("4_f47n6")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtbdo"]
+atlas = ExtResource("4_f47n6")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xrf82"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fe1mh")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fe1mh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtbdo")
+}],
+"loop": 1,
+"name": &"moving",
+"speed": 10.0
+}]
+
 [resource]
 script = ExtResource("1_svcky")
 id = "heartrending"
 name = "Heartrending"
 health = SubResource("Resource_7ytjt")
 speed = 50.0
-texture = ExtResource("4_f47n6")
+texture = SubResource("SpriteFrames_xrf82")
 scene = "uid://cvbvier01rle3"
 metadata/_custom_type_script = "uid://bso22l6igjkib"

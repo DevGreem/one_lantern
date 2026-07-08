@@ -6,6 +6,6 @@ class_name EntityData
 @export var name: String
 @export var health := LimitedValue.new(0, 100, 100)
 @export var speed: float
-@export var texture: Texture2D
+@export var texture: SpriteFrames
 
 @export_file("*.tscn") var scene: String

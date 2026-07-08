@@ -3,8 +3,9 @@ extends CharacterBody2D
 
 class_name Entity
 
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite: AnimatedSprite2D = $Sprite
 @onready var on_screen: OnScreenCollisionShape = $OnScreen
+@onready var animation: AnimationPlayer = $Animation
 
 @export var info: EntityData:
 	set(value):
@@ -12,6 +13,7 @@ class_name Entity
 		info = value
 		
 		if info:
+			info = info.duplicate(true)
 			_update_info()
 			
 @export var target: Player:
@@ -21,8 +23,10 @@ class_name Entity
 		
 		if target:
 			_update_look()
+@export var can_move := true
 
 var into_screen := false
+var is_paused := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -54,12 +58,12 @@ func _process(_delta: float):
 	if info.health.current_value <= 0:
 		self.queue_free()
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	
 	if Engine.is_editor_hint() or not target or not info:
 		return
 	
-	_take_step()
+	_take_step(delta)
 
 func _update_info() -> void:
 	
@@ -67,13 +71,21 @@ func _update_info() -> void:
 		await ready
 	
 	if info.texture:
-		sprite.texture = info.texture
+		sprite.sprite_frames = info.texture
 
 func _update_look() -> void:
+	
+	if is_paused:
+		return
+	
 	self.look_at(target.global_position) 
 	self.rotation += deg_to_rad(90)
 
-func _take_step():
+@warning_ignore("unused_parameter")
+func _take_step(delta: float):
+	
+	if is_paused:
+		return
 	
 	var speed := self.global_position.direction_to(target.global_position)
 	
@@ -88,3 +100,11 @@ func _on_enter_screen() -> void:
 func _on_exit_screen() -> void:
 	into_screen = false
 	print("Entity exited of the screen")
+
+func pause() -> void:
+	is_paused = true
+	animation.pause()
+
+func resume() -> void:
+	is_paused = false
+	animation.resume()

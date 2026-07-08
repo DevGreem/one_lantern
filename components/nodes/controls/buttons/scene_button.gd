@@ -1,5 +1,7 @@
 extends Button
 
+class_name SceneButton
+
 ## Packed Scene (Only fill if you don't need recursion betweem scenes)
 @export var scene: PackedScene
 ## Path to the scene (Only fill if you need recursion between scenes)

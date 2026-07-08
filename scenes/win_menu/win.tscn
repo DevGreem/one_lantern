@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://co4sna7lm65ln"]
+
+[ext_resource type="Script" uid="uid://dw2w5x7mwady8" path="res://components/nodes/controls/buttons/unpause_scene_button.gd" id="1_7y53v"]
+
+[node name="Win" type="CenterContainer" unique_id=18758931]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="VBoxContainer" parent="." unique_id=1025884786]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Container" unique_id=1648603949]
+layout_mode = 2
+text = "You Win!"
+
+[node name="Button" type="Button" parent="Container" unique_id=1468634729]
+layout_mode = 2
+text = "Return"
+script = ExtResource("1_7y53v")
+scene_dir = "uid://b8gnf1gk5kjyr"

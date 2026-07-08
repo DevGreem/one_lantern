@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://yd2jes1rxap7"]
+
+[ext_resource type="Script" uid="uid://dw2w5x7mwady8" path="res://components/nodes/controls/buttons/unpause_scene_button.gd" id="1_m4rl1"]
+
+[node name="Lose" type="CenterContainer" unique_id=1937533335]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="VBoxContainer" parent="." unique_id=826500048]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Container" unique_id=70933145]
+layout_mode = 2
+text = "You lose!"
+
+[node name="Button" type="Button" parent="Container" unique_id=1044819527]
+layout_mode = 2
+text = "Return"
+script = ExtResource("1_m4rl1")
+scene_dir = "uid://b8gnf1gk5kjyr"
