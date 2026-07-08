@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://beeyvoo5yew8b"]
+
+[ext_resource type="Script" uid="uid://diwfl8u0r6oib" path="res://components/resources/limit_range.gd" id="1_w54lc"]
+[ext_resource type="Script" uid="uid://0d5ed3kfjiwk" path="res://components/resources/unlimit_range.gd" id="2_u6xux"]
+[ext_resource type="Script" uid="uid://byd5rmgrxklrf" path="res://resources/entities_container_data.gd" id="3_xoj7n"]
+[ext_resource type="Script" uid="uid://bucuxfvra17cc" path="res://resources/level_data.gd" id="4_bn7mq"]
+
+[sub_resource type="Resource" id="Resource_x4oov"]
+script = ExtResource("1_w54lc")
+min_value = 2.0
+max_value = 3.0
+metadata/_custom_type_script = "uid://diwfl8u0r6oib"
+
+[sub_resource type="Resource" id="Resource_vrc4q"]
+script = ExtResource("2_u6xux")
+min_value = 2.0
+max_value = 0.5
+metadata/_custom_type_script = "uid://0d5ed3kfjiwk"
+
+[sub_resource type="Resource" id="Resource_pm6rs"]
+script = ExtResource("3_xoj7n")
+time_between_enemy_spawns = 5.0
+range_time_between_spawns = SubResource("Resource_vrc4q")
+range_between_spawns = 10.0
+cantity_between_spawns = SubResource("Resource_x4oov")
+metadata/_custom_type_script = "uid://byd5rmgrxklrf"
+
+[resource]
+script = ExtResource("4_bn7mq")
+name = "Aokigahara"
+difficulty = 3
+time_to_survive = 120.0
+entities_data = SubResource("Resource_pm6rs")
+metadata/_custom_type_script = "uid://bucuxfvra17cc"

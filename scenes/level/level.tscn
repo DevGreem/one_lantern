@@ -14,9 +14,6 @@
 [sub_resource type="Resource" id="Resource_sytrn"]
 script = ExtResource("2_tf2q7")
 time_between_enemy_spawns = 5.0
-range_time_between_spawns = 1.0
-range_between_spawns = 100.0
-cantity_between_spawns = 3
 metadata/_custom_type_script = "uid://byd5rmgrxklrf"
 
 [sub_resource type="Resource" id="Resource_xv074"]

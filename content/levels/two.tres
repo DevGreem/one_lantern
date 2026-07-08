@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://de1agi40jnbks"]
+
+[ext_resource type="Script" uid="uid://diwfl8u0r6oib" path="res://components/resources/limit_range.gd" id="1_gjqap"]
+[ext_resource type="Script" uid="uid://byd5rmgrxklrf" path="res://resources/entities_container_data.gd" id="1_ryxev"]
+[ext_resource type="Script" uid="uid://0d5ed3kfjiwk" path="res://components/resources/unlimit_range.gd" id="2_05xhy"]
+[ext_resource type="Script" uid="uid://bucuxfvra17cc" path="res://resources/level_data.gd" id="2_fubef"]
+
+[sub_resource type="Resource" id="Resource_ei11c"]
+script = ExtResource("1_gjqap")
+min_value = 1.0
+max_value = 2.0
+metadata/_custom_type_script = "uid://diwfl8u0r6oib"
+
+[sub_resource type="Resource" id="Resource_657l1"]
+script = ExtResource("2_05xhy")
+min_value = 1.0
+metadata/_custom_type_script = "uid://0d5ed3kfjiwk"
+
+[sub_resource type="Resource" id="Resource_1eh2i"]
+script = ExtResource("1_ryxev")
+time_between_enemy_spawns = 7.0
+range_time_between_spawns = SubResource("Resource_657l1")
+cantity_between_spawns = SubResource("Resource_ei11c")
+metadata/_custom_type_script = "uid://byd5rmgrxklrf"
+
+[resource]
+script = ExtResource("2_fubef")
+name = "Sherwood Forest"
+difficulty = 1
+time_to_survive = 60.0
+entities_data = SubResource("Resource_1eh2i")
+metadata/_custom_type_script = "uid://bucuxfvra17cc"

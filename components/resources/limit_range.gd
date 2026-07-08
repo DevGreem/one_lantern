@@ -1,31 +1,24 @@
-extends ShareableResource
+extends UnlimitRange
 
 class_name LimitRange
 
-signal on_change_max_value
-signal on_change_min_value
-
-@export var max_value := 1.0:
-	set(value):
-		
-		if value < min_value:
-			value = min_value
-		
-		max_value = value
-		on_change_max_value.emit()
-
-@export var min_value := 0.0:
-	set(value):
-		
-		if value > max_value:
-			value = max_value
-		
-		min_value = value
-		on_change_min_value.emit()
-
 func _init(min_val := min_value, max_val := max_value):
-	min_value = min_val
-	max_value = max_val
+	
+	if not on_change_min_value.is_connected(_on_change_min_value):
+		on_change_min_value.connect(_on_change_min_value)
+	
+	if not on_change_max_value.is_connected(_on_change_max_value):
+		on_change_max_value.connect(_on_change_max_value)
+		
+	super._init(min_val, max_val)
 
 func is_in_range(value: float) -> bool:
 	return value >= min_value && value <= max_value
+
+func _on_change_min_value() -> void:
+	if min_value > max_value:
+		min_value = max_value
+
+func _on_change_max_value() -> void:
+	if max_value < min_value:
+		max_value = min_value

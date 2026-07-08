@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ddqvw7rm06vp0" path="res://components/nodes/controls/buttons/exit_button.gd" id="1_hyk8p"]
 [ext_resource type="Script" uid="uid://n4htfoxb2d2v" path="res://components/nodes/controls/buttons/scene_button.gd" id="1_iuonh"]
-[ext_resource type="PackedScene" uid="uid://cevau2t0nq53h" path="res://scenes/level/level.tscn" id="2_k2fmo"]
+[ext_resource type="PackedScene" uid="uid://csw2gi3sfvjoo" path="res://scenes/level_menu/level_menu.tscn" id="2_k2fmo"]
 
 [node name="Main" type="CenterContainer" unique_id=135866769]
 anchors_preset = 15

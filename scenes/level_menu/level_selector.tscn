@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://dxenmnhxqslt1"]
+
+[ext_resource type="Script" uid="uid://cxua7ndq2wkk1" path="res://scenes/level_menu/level_selector.gd" id="1_mh6ym"]
+
+[node name="Selector" type="HBoxContainer" unique_id=1502120585]
+theme_override_constants/separation = 24
+alignment = 1
+script = ExtResource("1_mh6ym")
+
+[node name="Forests" type="ItemList" parent="." unique_id=172144634]
+custom_minimum_size = Vector2(300, 500)
+layout_mode = 2
+
+[node name="ForestInfo" type="PanelContainer" parent="." unique_id=1151737359]
+custom_minimum_size = Vector2(300, 0)
+custom_maximum_size = Vector2(300, -1)
+layout_mode = 2
+
+[node name="Container" type="VBoxContainer" parent="ForestInfo" unique_id=595241245]
+custom_maximum_size = Vector2(300, -1)
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="MarginName" type="MarginContainer" parent="ForestInfo/Container" unique_id=1121484731]
+layout_mode = 2
+theme_override_constants/margin_top = 8
+
+[node name="Name" type="Label" parent="ForestInfo/Container/MarginName" unique_id=1594115982]
+layout_mode = 2
+text = "Test Text"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="ForestInfo/Container" unique_id=913412842]
+layout_mode = 2
+
+[node name="Description" type="RichTextLabel" parent="ForestInfo/Container" unique_id=126866309]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Test Description"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="MarginPlay" type="MarginContainer" parent="ForestInfo/Container" unique_id=899282178]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ForestInfo/Container/MarginPlay" unique_id=409340256]
+layout_mode = 2
+
+[node name="Difficulty" type="Label" parent="ForestInfo/Container/MarginPlay/VBoxContainer" unique_id=106156334]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Diffculty: {0}"
+
+[node name="Play" type="Button" parent="ForestInfo/Container/MarginPlay/VBoxContainer" unique_id=2086884155]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+text = "Play Forest"

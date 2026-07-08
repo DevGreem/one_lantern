@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://csw2gi3sfvjoo"]
+
+[ext_resource type="PackedScene" uid="uid://dxenmnhxqslt1" path="res://scenes/level_menu/level_selector.tscn" id="1_wt4pq"]
+
+[node name="LevelMenu" type="Panel" unique_id=172430938]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="CenterContainer" parent="." unique_id=1603269898]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Levels" type="VBoxContainer" parent="Container" unique_id=1849522827]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Container/Levels" unique_id=892004006]
+layout_mode = 2
+text = "Select a forest"
+horizontal_alignment = 1
+
+[node name="Selector" parent="Container/Levels" unique_id=1502120585 instance=ExtResource("1_wt4pq")]
+layout_mode = 2

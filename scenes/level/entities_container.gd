@@ -36,11 +36,11 @@ func _physics_process(delta: float) -> void:
 		print("Enemies spawned!")
 
 func _randf_spawn() -> float:
-	return randf_range(info.time_between_enemy_spawns - info.range_time_between_spawns, info.time_between_enemy_spawns + info.range_time_between_spawns)
+	return randf_range(info.time_between_enemy_spawns - info.range_time_between_spawns.min_value, info.time_between_enemy_spawns + info.range_time_between_spawns.max_value)
 
 func generate_rand_enemies() -> void:
 	
-	var cant := randi_range(1, info.cantity_between_spawns)
+	var cant := randi_range(max(1, info.cantity_between_spawns.min_value), int(info.cantity_between_spawns.max_value))
 	
 	for i in range(cant):
 		generate_enemy()

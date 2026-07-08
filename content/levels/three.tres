@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://c161xpvhvwlsn"]
+
+[ext_resource type="Script" uid="uid://diwfl8u0r6oib" path="res://components/resources/limit_range.gd" id="1_ilnjt"]
+[ext_resource type="Script" uid="uid://0d5ed3kfjiwk" path="res://components/resources/unlimit_range.gd" id="1_kc5xi"]
+[ext_resource type="Script" uid="uid://byd5rmgrxklrf" path="res://resources/entities_container_data.gd" id="1_pjgku"]
+[ext_resource type="Script" uid="uid://bucuxfvra17cc" path="res://resources/level_data.gd" id="2_hd3mr"]
+
+[sub_resource type="Resource" id="Resource_53rxf"]
+script = ExtResource("1_ilnjt")
+min_value = 2.0
+max_value = 3.0
+metadata/_custom_type_script = "uid://diwfl8u0r6oib"
+
+[sub_resource type="Resource" id="Resource_05xhy"]
+script = ExtResource("1_kc5xi")
+min_value = 2.0
+metadata/_custom_type_script = "uid://0d5ed3kfjiwk"
+
+[sub_resource type="Resource" id="Resource_gjqap"]
+script = ExtResource("1_pjgku")
+time_between_enemy_spawns = 6.0
+range_time_between_spawns = SubResource("Resource_05xhy")
+range_between_spawns = 25.0
+cantity_between_spawns = SubResource("Resource_53rxf")
+metadata/_custom_type_script = "uid://byd5rmgrxklrf"
+
+[resource]
+script = ExtResource("2_hd3mr")
+name = "Appalachian Mountains"
+difficulty = 2
+time_to_survive = 90.0
+entities_data = SubResource("Resource_gjqap")
+metadata/_custom_type_script = "uid://bucuxfvra17cc"
