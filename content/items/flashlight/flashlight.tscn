@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://ttkphw6xl83b"]
+
+[ext_resource type="Texture2D" uid="uid://y4eex3srdnn1" path="res://content/items/flashlight/flashlight.png" id="1_dsq5v"]
+[ext_resource type="Script" uid="uid://bjra12fgqtkv8" path="res://content/items/flashlight/flashlight_area.gd" id="1_nxqsf"]
+[ext_resource type="Script" uid="uid://hn2hoqdsx3b8" path="res://content/items/flashlight/flashlight.gd" id="2_ohbhm"]
+[ext_resource type="AudioStream" uid="uid://c2x2e400hedmk" path="res://sounds/toggle_flashlight.mp3" id="4_wcsy3"]
+
+[sub_resource type="Gradient" id="Gradient_i166f"]
+offsets = PackedFloat32Array(0.88, 0.88)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g04yl"]
+gradient = SubResource("Gradient_i166f")
+width = 1500
+height = 1500
+fill = 3
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.697, 0)
+
+[node name="Flashlight" type="Sprite2D" unique_id=683669194]
+texture = ExtResource("1_dsq5v")
+script = ExtResource("2_ohbhm")
+metadata/_edit_lock_ = true
+
+[node name="Light" type="PointLight2D" parent="." unique_id=739931481]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(0, -6)
+energy = 0.55
+texture = SubResource("GradientTexture2D_g04yl")
+
+[node name="Area2D" type="Area2D" parent="Light" unique_id=568582195]
+collision_layer = 128
+script = ExtResource("1_nxqsf")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Light/Area2D" unique_id=41012778]
+polygon = PackedVector2Array(0, 0, -298, -750, 295, -750)
+metadata/_edit_lock_ = true
+
+[node name="Sound" type="AudioStreamPlayer" parent="." unique_id=208263791]
+stream = ExtResource("4_wcsy3")
