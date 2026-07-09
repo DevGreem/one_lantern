@@ -53,6 +53,9 @@ func _process(_delta: float):
 	if not info:
 		return
 	
+	if Engine.is_editor_hint():
+		return
+	
 	sprite.modulate.a = info.health.current_value/info.health.max_value
 	
 	if info.health.current_value <= 0:

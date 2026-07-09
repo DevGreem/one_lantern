@@ -42,4 +42,6 @@ func _on_level_selected(index: int) -> void:
 	difficulty.text = "Difficulty: {0}".format([diff_name])
 
 func _on_pressed_play() -> void:
-	pass
+	var node := LevelNode.generate(loaded_levels[forests.get_selected_items()[0]])
+	
+	get_tree().change_scene_to_node(node)

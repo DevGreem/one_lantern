@@ -16,3 +16,4 @@ enum Difficulty {
 ## In seconds
 @export var time_to_survive: float
 @export var entities_data: EntitiesContainerData
+@export var flashlight_data: FlashlightData

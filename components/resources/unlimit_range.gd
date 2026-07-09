@@ -5,20 +5,20 @@ class_name UnlimitRange
 signal on_change_max_value
 signal on_change_min_value
 
-@export var min_value := 0.0:
+@export var _min_value: float
+@export var _max_value: float
+
+var min_value: float:
+	get: return _min_value
 	set(value):
-		min_value = value
+		_min_value = value
 		on_change_min_value.emit()
 
-@export var max_value := 1.0:
+var max_value: float:
+	get: return _max_value
 	set(value):
-		max_value = value
+		_max_value = value
 		on_change_max_value.emit()
-
-
-func _init(min_val := min_value, max_val := max_value):
-	min_value = min_val
-	max_value = max_val
 
 func is_in_range(value: float) -> bool:
 	return value >= min_value && value <= max_value

@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://csw2gi3sfvjoo"]
 
+[ext_resource type="Script" uid="uid://n4htfoxb2d2v" path="res://components/nodes/controls/buttons/scene_button.gd" id="1_ikv47"]
 [ext_resource type="PackedScene" uid="uid://dxenmnhxqslt1" path="res://scenes/level_menu/level_selector.tscn" id="1_wt4pq"]
 
 [node name="LevelMenu" type="Panel" unique_id=172430938]
@@ -27,3 +28,17 @@ horizontal_alignment = 1
 
 [node name="Selector" parent="Container/Levels" unique_id=1502120585 instance=ExtResource("1_wt4pq")]
 layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=41514247]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+
+[node name="Return" type="Button" parent="MarginContainer" unique_id=902009337]
+layout_mode = 2
+text = "Return
+"
+script = ExtResource("1_ikv47")
+scene_dir = "uid://b8gnf1gk5kjyr"

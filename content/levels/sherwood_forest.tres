@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://de1agi40jnbks"]
+
+[ext_resource type="Script" uid="uid://diwfl8u0r6oib" path="res://components/resources/limit_range.gd" id="1_lktqy"]
+[ext_resource type="Script" uid="uid://0d5ed3kfjiwk" path="res://components/resources/unlimit_range.gd" id="2_s55qw"]
+[ext_resource type="Script" uid="uid://byd5rmgrxklrf" path="res://resources/entities_container_data.gd" id="3_qei66"]
+[ext_resource type="Script" uid="uid://bucuxfvra17cc" path="res://resources/level_data.gd" id="4_4b5d4"]
+[ext_resource type="Script" uid="uid://u37g6bro1a2f" path="res://resources/items/flashlight_data.gd" id="4_s55qw"]
+
+[sub_resource type="Resource" id="Resource_ei11c"]
+script = ExtResource("1_lktqy")
+_min_value = 1.0
+_max_value = 1.0
+metadata/_custom_type_script = "uid://diwfl8u0r6oib"
+
+[sub_resource type="Resource" id="Resource_657l1"]
+script = ExtResource("2_s55qw")
+_min_value = 1.0
+_max_value = 2.0
+metadata/_custom_type_script = "uid://0d5ed3kfjiwk"
+
+[sub_resource type="Resource" id="Resource_1eh2i"]
+script = ExtResource("3_qei66")
+time_between_enemy_spawns = 7.0
+range_time_between_spawns = SubResource("Resource_657l1")
+range_between_spawns = 50.0
+cantity_between_spawns = SubResource("Resource_ei11c")
+metadata/_custom_type_script = "uid://byd5rmgrxklrf"
+
+[sub_resource type="Resource" id="Resource_ao6gk"]
+script = ExtResource("4_s55qw")
+max_duration = 55.0
+metadata/_custom_type_script = "uid://u37g6bro1a2f"
+
+[resource]
+script = ExtResource("4_4b5d4")
+name = "Sherwood Forest"
+description = "This forest was once filled with whispers of fairies and iconic legends; today, it is merely a dark and abandoned place."
+difficulty = 1
+time_to_survive = 60.0
+entities_data = SubResource("Resource_1eh2i")
+flashlight_data = SubResource("Resource_ao6gk")
+metadata/_custom_type_script = "uid://bucuxfvra17cc"

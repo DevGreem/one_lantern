@@ -3,7 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://y4eex3srdnn1" path="res://content/items/flashlight/flashlight.png" id="1_dsq5v"]
 [ext_resource type="Script" uid="uid://bjra12fgqtkv8" path="res://content/items/flashlight/flashlight_area.gd" id="1_nxqsf"]
 [ext_resource type="Script" uid="uid://hn2hoqdsx3b8" path="res://content/items/flashlight/flashlight.gd" id="2_ohbhm"]
+[ext_resource type="Script" uid="uid://u37g6bro1a2f" path="res://resources/items/flashlight_data.gd" id="3_0ohff"]
 [ext_resource type="AudioStream" uid="uid://c2x2e400hedmk" path="res://sounds/toggle_flashlight.mp3" id="4_wcsy3"]
+
+[sub_resource type="Resource" id="Resource_pe1ox"]
+script = ExtResource("3_0ohff")
+max_duration = 100.0
+metadata/_custom_type_script = "uid://u37g6bro1a2f"
 
 [sub_resource type="Gradient" id="Gradient_i166f"]
 offsets = PackedFloat32Array(0.88, 0.88)
@@ -19,6 +25,7 @@ fill_to = Vector2(0.697, 0)
 [node name="Flashlight" type="Sprite2D" unique_id=683669194]
 texture = ExtResource("1_dsq5v")
 script = ExtResource("2_ohbhm")
+info = SubResource("Resource_pe1ox")
 metadata/_edit_lock_ = true
 
 [node name="Light" type="PointLight2D" parent="." unique_id=739931481]

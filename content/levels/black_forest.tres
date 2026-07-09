@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://dnsmogt07k0gn"]
+
+[ext_resource type="Script" uid="uid://diwfl8u0r6oib" path="res://components/resources/limit_range.gd" id="1_mrmby"]
+[ext_resource type="Script" uid="uid://0d5ed3kfjiwk" path="res://components/resources/unlimit_range.gd" id="2_og87m"]
+[ext_resource type="Script" uid="uid://byd5rmgrxklrf" path="res://resources/entities_container_data.gd" id="3_ao6gk"]
+[ext_resource type="Script" uid="uid://bucuxfvra17cc" path="res://resources/level_data.gd" id="4_oamro"]
+[ext_resource type="Script" uid="uid://u37g6bro1a2f" path="res://resources/items/flashlight_data.gd" id="4_og87m"]
+
+[sub_resource type="Resource" id="Resource_tf2q7"]
+script = ExtResource("1_mrmby")
+_min_value = 1.0
+_max_value = 1.0
+metadata/_custom_type_script = "uid://diwfl8u0r6oib"
+
+[sub_resource type="Resource" id="Resource_fe1mh"]
+script = ExtResource("2_og87m")
+_max_value = 2.0
+metadata/_custom_type_script = "uid://0d5ed3kfjiwk"
+
+[sub_resource type="Resource" id="Resource_rqvud"]
+script = ExtResource("3_ao6gk")
+time_between_enemy_spawns = 8.0
+range_time_between_spawns = SubResource("Resource_fe1mh")
+range_between_spawns = 100.0
+cantity_between_spawns = SubResource("Resource_tf2q7")
+metadata/_custom_type_script = "uid://byd5rmgrxklrf"
+
+[sub_resource type="Resource" id="Resource_m0bv2"]
+script = ExtResource("4_og87m")
+max_duration = 44.0
+metadata/_custom_type_script = "uid://u37g6bro1a2f"
+
+[resource]
+script = ExtResource("4_oamro")
+name = "Black Forest"
+description = "A forest known for its climate and for the disappearance of people there, caused by various events."
+time_to_survive = 45.0
+entities_data = SubResource("Resource_rqvud")
+flashlight_data = SubResource("Resource_m0bv2")
+metadata/_custom_type_script = "uid://bucuxfvra17cc"

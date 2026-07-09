@@ -4,6 +4,8 @@ class_name Player
 
 signal on_die
 
+@onready var flashlight: FlashlightNode = $Flashlight
+
 func _physics_process(_delta: float) -> void:
 	
 	var pos := get_global_mouse_position()

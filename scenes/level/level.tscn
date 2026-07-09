@@ -9,7 +9,9 @@
 [ext_resource type="Script" uid="uid://bucuxfvra17cc" path="res://resources/level_data.gd" id="3_pe1ox"]
 [ext_resource type="PackedScene" uid="uid://yd2jes1rxap7" path="res://scenes/lose_menu/lose.tscn" id="3_sytrn"]
 [ext_resource type="Script" uid="uid://b5a5vaipxvh58" path="res://scenes/level/entities_container.gd" id="4_hnne4"]
+[ext_resource type="Script" uid="uid://71ubu23g31ph" path="res://scenes/level/time_remaining_label.gd" id="5_m0bv2"]
 [ext_resource type="Script" uid="uid://cqse8hivi4qt2" path="res://components/nodes/point_light/no_rotable_light.gd" id="5_wcngd"]
+[ext_resource type="Script" uid="uid://b12431f3s5y1o" path="res://scenes/level/battery.gd" id="6_pe1ox"]
 
 [sub_resource type="Resource" id="Resource_sytrn"]
 script = ExtResource("2_tf2q7")
@@ -46,6 +48,42 @@ info = SubResource("Resource_xv074")
 
 [node name="Menus" type="CanvasLayer" parent="." unique_id=492087778]
 process_mode = 3
+
+[node name="UI" type="MarginContainer" parent="Menus" unique_id=812786125]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+
+[node name="ProgressBar" type="ProgressBar" parent="Menus/UI" unique_id=1598070400 node_paths=PackedStringArray("player")]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+script = ExtResource("6_pe1ox")
+player = NodePath("../../../Entities/Player")
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menus/UI" unique_id=455182550]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="Menus/UI/HBoxContainer" unique_id=41275524]
+layout_mode = 2
+text = "Time Left (Seconds):"
+
+[node name="TimeRemaining" type="Label" parent="Menus/UI/HBoxContainer" unique_id=1255141375 node_paths=PackedStringArray("node")]
+layout_mode = 2
+text = "0"
+script = ExtResource("5_m0bv2")
+node = NodePath("../../../../Timer")
+property = &"time_left"
 
 [node name="Win" parent="Menus" unique_id=18758931 instance=ExtResource("2_xv074")]
 

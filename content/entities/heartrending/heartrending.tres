@@ -6,8 +6,8 @@
 
 [sub_resource type="Resource" id="Resource_7ytjt"]
 script = ExtResource("1_7ytjt")
-current_value = 3.0
-max_value = 3.0
+_current_value = 3.0
+_max_value = 3.0
 metadata/_custom_type_script = "uid://6q5kx66wrigb"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fe1mh"]
