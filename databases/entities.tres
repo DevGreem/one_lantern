@@ -29,5 +29,10 @@ _property_index = Dictionary[StringName, Dictionary]({
 "Heartrending": {
 &"heartrending": true
 }
+},
+&"spawneable_in": {
+Array[StringName]([]): {
+&"heartrending": true
+}
 }
 })

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ItemBuffs" format=3 uid="uid://dlr8jqirpbdd0"]
+
+[ext_resource type="Script" uid="uid://hn2hoqdsx3b8" path="res://content/items/flashlight/flashlight.gd" id="1_dks1f"]
+[ext_resource type="Script" uid="uid://c4erfvskj4rmr" path="res://resources/items/item_effect.gd" id="1_iy0sa"]
+[ext_resource type="Script" uid="uid://cnan7aikrbxer" path="res://resources/items/item_buffs.gd" id="2_dks1f"]
+
+[sub_resource type="Resource" id="Resource_o8qik"]
+script = ExtResource("1_iy0sa")
+to_property = &"duration"
+operator = "+"
+effect = 5.0
+metadata/_custom_type_script = "uid://c4erfvskj4rmr"
+
+[resource]
+script = ExtResource("2_dks1f")
+affect_to = ExtResource("1_dks1f")
+effects = Array[ExtResource("1_iy0sa")]([SubResource("Resource_o8qik")])
+metadata/_custom_type_script = "uid://cnan7aikrbxer"

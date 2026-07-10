@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://dnsmogt07k0gn"]
+
+[ext_resource type="Script" uid="uid://diwfl8u0r6oib" path="res://components/resources/limit_range.gd" id="1_0kowf"]
+[ext_resource type="Script" uid="uid://0d5ed3kfjiwk" path="res://components/resources/unlimit_range.gd" id="2_ht15x"]
+[ext_resource type="Script" uid="uid://byd5rmgrxklrf" path="res://resources/entities_container_data.gd" id="3_sdxlt"]
+[ext_resource type="Script" uid="uid://u37g6bro1a2f" path="res://resources/items/flashlight_data.gd" id="4_gqijd"]
+[ext_resource type="Script" uid="uid://bucuxfvra17cc" path="res://resources/level_data.gd" id="5_bkim8"]
+[ext_resource type="Script" uid="uid://bbxflmlvkbh2u" path="res://resources/items/weight/weight_data.gd" id="7_gqijd"]
+[ext_resource type="Resource" uid="uid://dg720m2q2v0gu" path="res://content/items/battery/battery.tres" id="8_gqijd"]
+[ext_resource type="Script" uid="uid://duv7h0ux1capc" path="res://resources/items/weight/items_container.gd" id="9_bkim8"]
+[ext_resource type="Script" uid="uid://dn4h7lqmf1apk" path="res://resources/items/items_container_data.gd" id="9_gqijd"]
+
+[sub_resource type="Resource" id="Resource_tf2q7"]
+script = ExtResource("1_0kowf")
+_min_value = 1.0
+_max_value = 1.0
+metadata/_custom_type_script = "uid://diwfl8u0r6oib"
+
+[sub_resource type="Resource" id="Resource_fe1mh"]
+script = ExtResource("2_ht15x")
+_max_value = 2.0
+metadata/_custom_type_script = "uid://0d5ed3kfjiwk"
+
+[sub_resource type="Resource" id="Resource_rqvud"]
+script = ExtResource("3_sdxlt")
+time_between_enemy_spawns = 8.0
+range_time_between_spawns = SubResource("Resource_fe1mh")
+range_between_spawns = 100.0
+cantity_between_spawns = SubResource("Resource_tf2q7")
+metadata/_custom_type_script = "uid://byd5rmgrxklrf"
+
+[sub_resource type="Resource" id="Resource_m0bv2"]
+script = ExtResource("4_gqijd")
+max_duration = 40.0
+metadata/_custom_type_script = "uid://u37g6bro1a2f"
+
+[sub_resource type="Resource" id="Resource_bkim8"]
+script = ExtResource("7_gqijd")
+weight = 100
+item = ExtResource("8_gqijd")
+metadata/_custom_type_script = "uid://bbxflmlvkbh2u"
+
+[sub_resource type="Resource" id="Resource_gqijd"]
+script = ExtResource("9_bkim8")
+items = Array[ExtResource("7_gqijd")]([SubResource("Resource_bkim8")])
+metadata/_custom_type_script = "uid://duv7h0ux1capc"
+
+[sub_resource type="Resource" id="Resource_sdxlt"]
+script = ExtResource("9_gqijd")
+probability_to_spawn = 0.05
+container = SubResource("Resource_gqijd")
+metadata/_custom_type_script = "uid://dn4h7lqmf1apk"
+
+[resource]
+script = ExtResource("5_bkim8")
+id = "black forest"
+name = "Black Forest"
+description = "A forest known for its climate and for the disappearance of people there, caused by various events."
+time_to_survive = 45.0
+entities_data = SubResource("Resource_rqvud")
+flashlight_data = SubResource("Resource_m0bv2")
+spawneable_items = SubResource("Resource_sdxlt")
+metadata/_custom_type_script = "uid://bucuxfvra17cc"

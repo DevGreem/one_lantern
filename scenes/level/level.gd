@@ -21,6 +21,7 @@ static func generate(data: LevelData) -> LevelNode:
 
 func _ready():
 	entities_container.info = info.entities_data
+	entities_container.item_info = info.spawneable_items
 	entities_container.update()
 	player.flashlight.info = info.flashlight_data
 	timer.timeout.connect(_on_survive)

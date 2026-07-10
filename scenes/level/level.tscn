@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://71ubu23g31ph" path="res://scenes/level/time_remaining_label.gd" id="5_m0bv2"]
 [ext_resource type="Script" uid="uid://cqse8hivi4qt2" path="res://components/nodes/point_light/no_rotable_light.gd" id="5_wcngd"]
 [ext_resource type="Script" uid="uid://b12431f3s5y1o" path="res://scenes/level/battery.gd" id="6_pe1ox"]
+[ext_resource type="PackedScene" uid="uid://cjkfy0tem0lyc" path="res://content/items/battery/battery.tscn" id="13_b7m21"]
 
 [sub_resource type="Resource" id="Resource_sytrn"]
 script = ExtResource("2_tf2q7")
@@ -61,24 +62,32 @@ theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 
-[node name="ProgressBar" type="ProgressBar" parent="Menus/UI" unique_id=1598070400 node_paths=PackedStringArray("player")]
+[node name="Battery" type="HBoxContainer" parent="Menus/UI" unique_id=1478149434]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="Menus/UI/Battery" unique_id=1038649095]
+layout_mode = 2
+text = "Battery: "
+
+[node name="ProgressBar" type="ProgressBar" parent="Menus/UI/Battery" unique_id=1598070400 node_paths=PackedStringArray("player")]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 script = ExtResource("6_pe1ox")
-player = NodePath("../../../Entities/Player")
+player = NodePath("../../../../Entities/Player")
 metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Menus/UI" unique_id=455182550]
+[node name="Hour" type="HBoxContainer" parent="Menus/UI" unique_id=455182550]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 
-[node name="Label" type="Label" parent="Menus/UI/HBoxContainer" unique_id=41275524]
+[node name="Label" type="Label" parent="Menus/UI/Hour" unique_id=41275524]
 layout_mode = 2
-text = "Time Left (Seconds):"
+text = "Time Left:"
 
-[node name="TimeRemaining" type="Label" parent="Menus/UI/HBoxContainer" unique_id=1255141375 node_paths=PackedStringArray("node")]
+[node name="TimeRemaining" type="Label" parent="Menus/UI/Hour" unique_id=1255141375 node_paths=PackedStringArray("node")]
 layout_mode = 2
 text = "0"
 script = ExtResource("5_m0bv2")
@@ -110,10 +119,18 @@ texture_scale = 5.67
 script = ExtResource("5_wcngd")
 metadata/_edit_lock_ = true
 
-[node name="Entities" type="Node" parent="." unique_id=593929475]
+[node name="Entities" type="Node" parent="." unique_id=593929475 node_paths=PackedStringArray("level")]
 script = ExtResource("4_hnne4")
+level = NodePath("..")
 
 [node name="Player" parent="Entities" unique_id=1273766590 instance=ExtResource("3_i166f")]
+
+[node name="Items" type="Node" parent="." unique_id=1823804780]
+
+[node name="Battery" parent="Items" unique_id=1671323149 node_paths=PackedStringArray("node") instance=ExtResource("13_b7m21")]
+position = Vector2(-410, 70)
+node = NodePath("../../Entities/Player")
+property = &"flashlight"
 
 [node name="Timer" type="Timer" parent="." unique_id=1849058828]
 one_shot = true

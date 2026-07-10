@@ -7,6 +7,7 @@ class_name Entity
 @onready var on_screen: OnScreenCollisionShape = $OnScreen
 @onready var animation: AnimationPlayer = $Animation
 
+@export var level: LevelNode
 @export var info: EntityData:
 	set(value):
 		
@@ -24,6 +25,7 @@ class_name Entity
 		if target:
 			_update_look()
 @export var can_move := true
+@export var item: ItemData = null
 
 var into_screen := false
 var is_paused := false
@@ -59,7 +61,15 @@ func _process(_delta: float):
 	sprite.modulate.a = info.health.current_value/info.health.max_value
 	
 	if info.health.current_value <= 0:
-		self.queue_free()
+		die()
+
+func die() -> void:
+	
+	if item:
+		var node: ItemNode = load(item.scene).instantiate()
+		level.items.add_child(node)
+	
+	self.queue_free()
 
 func _physics_process(delta: float) -> void:
 	

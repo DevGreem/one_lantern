@@ -48,4 +48,5 @@ health = SubResource("Resource_7ytjt")
 speed = 50.0
 texture = SubResource("SpriteFrames_xrf82")
 scene = "uid://cvbvier01rle3"
+spawneable_in = Array[StringName]([&"black forest", &"sherwood forest"])
 metadata/_custom_type_script = "uid://bso22l6igjkib"

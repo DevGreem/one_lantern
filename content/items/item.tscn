@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://4p4v8dmrpitj"]
+
+[ext_resource type="Script" uid="uid://bpt4mdxgwtc8q" path="res://content/items/item_node.gd" id="1_y0b1x"]
+[ext_resource type="Script" uid="uid://dr5jt1oatkaxh" path="res://content/items/item_area.gd" id="2_1b0rg"]
+
+[node name="Item" type="Sprite2D" unique_id=1671323149]
+script = ExtResource("1_y0b1x")
+
+[node name="Area" type="Area2D" parent="." unique_id=308940196]
+script = ExtResource("2_1b0rg")
+
+[node name="ClickBox" type="CollisionShape2D" parent="Area" unique_id=1464109022]
+
+[connection signal="input_event" from="Area" to="Area" method="_on_input_event"]

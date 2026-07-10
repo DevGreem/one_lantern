@@ -10,4 +10,4 @@ class_name EntityData
 
 @export_file("*.tscn") var scene: String
 
-@export var drops: Array
+@export var spawneable_in: Array[StringName] = []

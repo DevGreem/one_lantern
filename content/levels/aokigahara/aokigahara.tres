@@ -1,25 +1,25 @@
 [gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://beeyvoo5yew8b"]
 
-[ext_resource type="Script" uid="uid://diwfl8u0r6oib" path="res://components/resources/limit_range.gd" id="1_tn771"]
-[ext_resource type="Script" uid="uid://0d5ed3kfjiwk" path="res://components/resources/unlimit_range.gd" id="2_bt3v3"]
-[ext_resource type="Script" uid="uid://byd5rmgrxklrf" path="res://resources/entities_container_data.gd" id="3_fng4x"]
-[ext_resource type="Script" uid="uid://u37g6bro1a2f" path="res://resources/items/flashlight_data.gd" id="4_bt3v3"]
-[ext_resource type="Script" uid="uid://bucuxfvra17cc" path="res://resources/level_data.gd" id="4_y5sol"]
+[ext_resource type="Script" uid="uid://diwfl8u0r6oib" path="res://components/resources/limit_range.gd" id="1_5iefk"]
+[ext_resource type="Script" uid="uid://0d5ed3kfjiwk" path="res://components/resources/unlimit_range.gd" id="2_1vm1v"]
+[ext_resource type="Script" uid="uid://byd5rmgrxklrf" path="res://resources/entities_container_data.gd" id="3_rn4jn"]
+[ext_resource type="Script" uid="uid://u37g6bro1a2f" path="res://resources/items/flashlight_data.gd" id="4_44ewn"]
+[ext_resource type="Script" uid="uid://bucuxfvra17cc" path="res://resources/level_data.gd" id="5_vey24"]
 
 [sub_resource type="Resource" id="Resource_x4oov"]
-script = ExtResource("1_tn771")
+script = ExtResource("1_5iefk")
 _min_value = 2.0
 _max_value = 3.0
 metadata/_custom_type_script = "uid://diwfl8u0r6oib"
 
 [sub_resource type="Resource" id="Resource_vrc4q"]
-script = ExtResource("2_bt3v3")
+script = ExtResource("2_1vm1v")
 _min_value = 2.0
 _max_value = 0.5
 metadata/_custom_type_script = "uid://0d5ed3kfjiwk"
 
 [sub_resource type="Resource" id="Resource_pm6rs"]
-script = ExtResource("3_fng4x")
+script = ExtResource("3_rn4jn")
 time_between_enemy_spawns = 5.0
 range_time_between_spawns = SubResource("Resource_vrc4q")
 range_between_spawns = 10.0
@@ -27,12 +27,13 @@ cantity_between_spawns = SubResource("Resource_x4oov")
 metadata/_custom_type_script = "uid://byd5rmgrxklrf"
 
 [sub_resource type="Resource" id="Resource_pe1ox"]
-script = ExtResource("4_bt3v3")
+script = ExtResource("4_44ewn")
 max_duration = 90.0
 metadata/_custom_type_script = "uid://u37g6bro1a2f"
 
 [resource]
-script = ExtResource("4_y5sol")
+script = ExtResource("5_vey24")
+id = "aoikigahara"
 name = "Aokigahara"
 description = "Hundreds of disappearances caused the place to become completely overrun by ghosts. Coupled with its unsettling atmosphere, it is not a good idea to pass through here."
 difficulty = 3

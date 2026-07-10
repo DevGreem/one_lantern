@@ -4,19 +4,32 @@ class_name EntitiesContainer
 
 @onready var camera: Camera2D = $"../Camera2D"
 
+@export var level: LevelNode
 @export var info: EntitiesContainerData:
 	set(value):
 		
 		info = value
 		update()
 
+@export var item_info: ItemsContainerData
+
 var _time_to_spawn: float
 
+var IDS: Array[StringName] = []
 const ENTITIES: Registry = preload("res://databases/entities.tres")
-var IDS := ENTITIES.get_all_string_ids()
 
 func _ready():
 	update()
+	
+	#TODO: Fix empty val array (for some reason)
+	print(ENTITIES.get_all_string_ids())
+	IDS = ENTITIES.filter(&"spawneable_in", 
+		func(val: Array[StringName]):
+			print(val)
+			print(typeof(val))
+			return level.info.id in val
+	)
+	print(IDS)
 
 func update() -> void:
 	
@@ -50,8 +63,12 @@ func generate_enemy() -> void:
 	var data: EntityData = ENTITIES.load_entry(IDS.pick_random())
 	var entity: Entity = load(data.scene).instantiate()
 	
+	entity.level = get_node("/root/Level")
 	entity.position = get_rand_spawn(data)
 	entity.add_to_group("enemy")
+	
+	if randf() <= item_info.probability_to_spawn:
+		entity.item = item_info.container.get_random_item()
 	
 	add_child(entity)
 
