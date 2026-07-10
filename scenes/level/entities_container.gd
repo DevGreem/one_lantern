@@ -21,15 +21,10 @@ const ENTITIES: Registry = preload("res://databases/entities.tres")
 func _ready():
 	update()
 	
-	#TODO: Fix empty val array (for some reason)
-	print(ENTITIES.get_all_string_ids())
-	IDS = ENTITIES.filter(&"spawneable_in", 
+	IDS = ENTITIES.filter(&"spawneable_in",
 		func(val: Array[StringName]):
-			print(val)
-			print(typeof(val))
 			return level.info.id in val
 	)
-	print(IDS)
 
 func update() -> void:
 	
