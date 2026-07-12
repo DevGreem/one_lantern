@@ -12,6 +12,7 @@ class_name ItemNode
 		_update_info()
 
 @onready var area: ItemArea = $Area
+@onready var timer: Timer = $Timer
 
 func _ready() -> void:
 	_update_info()
@@ -21,7 +22,7 @@ func _ready() -> void:
 	
 	if not area.pressed.is_connected(_on_pressed):
 		area.pressed.connect(_on_pressed)
-
+	
 func _update_info() -> void:
 	
 	if not info:

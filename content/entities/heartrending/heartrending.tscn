@@ -6,25 +6,25 @@
 [ext_resource type="Script" uid="uid://6q5kx66wrigb" path="res://components/resources/limited_value.gd" id="3_rnfec"]
 [ext_resource type="Script" uid="uid://bso22l6igjkib" path="res://resources/entities/entity_data.gd" id="4_16p5b"]
 
-[sub_resource type="Resource" id="Resource_ps3jo"]
+[sub_resource type="Resource" id="Resource_rnfec"]
 script = ExtResource("3_rnfec")
 _current_value = 3.0
 _max_value = 3.0
 metadata/_custom_type_script = "uid://6q5kx66wrigb"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ipog8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_16p5b"]
 atlas = ExtResource("3_8hxiy")
 region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0fqpo"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ps3jo"]
 atlas = ExtResource("3_8hxiy")
 region = Rect2(128, 0, 128, 128)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_nfqi0"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_ipog8"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ipog8")
+"texture": SubResource("AtlasTexture_16p5b")
 }],
 "loop": 0,
 "name": &"default",
@@ -32,23 +32,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ipog8")
+"texture": SubResource("AtlasTexture_16p5b")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0fqpo")
+"texture": SubResource("AtlasTexture_ps3jo")
 }],
 "loop": 1,
 "name": &"moving",
 "speed": 10.0
 }]
 
-[sub_resource type="Resource" id="Resource_ha3em"]
+[sub_resource type="Resource" id="Resource_0fqpo"]
 script = ExtResource("4_16p5b")
 id = "heartrending"
 name = "Heartrending"
-health = SubResource("Resource_ps3jo")
+health = SubResource("Resource_rnfec")
 speed = 50.0
-texture = SubResource("SpriteFrames_nfqi0")
+texture = SubResource("SpriteFrames_ipog8")
 scene = "uid://cvbvier01rle3"
 metadata/_custom_type_script = "uid://bso22l6igjkib"
 
@@ -112,11 +112,11 @@ _data = {
 
 [node name="Heartrending" unique_id=588095885 instance=ExtResource("1_0jw7e")]
 script = ExtResource("2_fa17q")
-info = SubResource("Resource_ha3em")
+info = SubResource("Resource_0fqpo")
 can_move = false
 
 [node name="Sprite" parent="." index="0" unique_id=1561370122]
-sprite_frames = SubResource("SpriteFrames_nfqi0")
+sprite_frames = SubResource("SpriteFrames_ipog8")
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=1939832832]
 position = Vector2(-4, 3.5)

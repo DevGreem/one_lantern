@@ -8,4 +8,4 @@ func _ready():
 	if Engine.is_editor_hint():
 		return
 	
-	animation.play("move")
+	sprite.play("move")

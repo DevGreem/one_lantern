@@ -5,6 +5,11 @@
 [ext_resource type="Script" uid="uid://byd5rmgrxklrf" path="res://resources/entities_container_data.gd" id="3_qei66"]
 [ext_resource type="Script" uid="uid://bucuxfvra17cc" path="res://resources/level_data.gd" id="4_4b5d4"]
 [ext_resource type="Script" uid="uid://u37g6bro1a2f" path="res://resources/items/flashlight_data.gd" id="4_s55qw"]
+[ext_resource type="Script" uid="uid://bbxflmlvkbh2u" path="res://resources/items/weight/weight_data.gd" id="6_52fbc"]
+[ext_resource type="Resource" uid="uid://dg720m2q2v0gu" path="res://content/items/battery/battery.tres" id="7_p2egi"]
+[ext_resource type="Script" uid="uid://duv7h0ux1capc" path="res://resources/items/weight/items_container.gd" id="8_16pcp"]
+[ext_resource type="Resource" uid="uid://drusq48yijy0w" path="res://content/items/flashlight_head/flashlight_head.tres" id="8_p2egi"]
+[ext_resource type="Script" uid="uid://dn4h7lqmf1apk" path="res://resources/items/items_container_data.gd" id="9_ywi8k"]
 
 [sub_resource type="Resource" id="Resource_ei11c"]
 script = ExtResource("1_lktqy")
@@ -31,12 +36,37 @@ script = ExtResource("4_s55qw")
 max_duration = 55.0
 metadata/_custom_type_script = "uid://u37g6bro1a2f"
 
+[sub_resource type="Resource" id="Resource_me1je"]
+script = ExtResource("6_52fbc")
+weight = 50
+item = ExtResource("7_p2egi")
+metadata/_custom_type_script = "uid://bbxflmlvkbh2u"
+
+[sub_resource type="Resource" id="Resource_nex0f"]
+script = ExtResource("6_52fbc")
+weight = 50
+item = ExtResource("8_p2egi")
+metadata/_custom_type_script = "uid://bbxflmlvkbh2u"
+
+[sub_resource type="Resource" id="Resource_jxwf1"]
+script = ExtResource("8_16pcp")
+items = Array[ExtResource("6_52fbc")]([SubResource("Resource_me1je"), SubResource("Resource_nex0f")])
+metadata/_custom_type_script = "uid://duv7h0ux1capc"
+
+[sub_resource type="Resource" id="Resource_jvbt0"]
+script = ExtResource("9_ywi8k")
+probability_to_spawn = 0.18
+container = SubResource("Resource_jxwf1")
+metadata/_custom_type_script = "uid://dn4h7lqmf1apk"
+
 [resource]
 script = ExtResource("4_4b5d4")
+id = "sherwood_forest"
 name = "Sherwood Forest"
 description = "This forest was once filled with whispers of fairies and iconic legends; today, it is merely a dark and abandoned place."
 difficulty = 1
 time_to_survive = 60.0
 entities_data = SubResource("Resource_1eh2i")
 flashlight_data = SubResource("Resource_ao6gk")
+spawneable_items = SubResource("Resource_jvbt0")
 metadata/_custom_type_script = "uid://bucuxfvra17cc"

@@ -21,10 +21,12 @@ const ENTITIES: Registry = preload("res://databases/entities.tres")
 func _ready():
 	update()
 	
+	print(ENTITIES.get_all_string_ids())
 	IDS = ENTITIES.filter(&"spawneable_in",
 		func(val: Array[StringName]):
 			return level.info.id in val
 	)
+	print(IDS)
 
 func update() -> void:
 	
@@ -62,8 +64,9 @@ func generate_enemy() -> void:
 	entity.position = get_rand_spawn(data)
 	entity.add_to_group("enemy")
 	
-	if randf() <= item_info.probability_to_spawn:
-		entity.item = item_info.container.get_random_item()
+	if item_info:
+		if randf() <= item_info.probability_to_spawn:
+			entity.item = item_info.container.get_random_item()
 	
 	add_child(entity)
 

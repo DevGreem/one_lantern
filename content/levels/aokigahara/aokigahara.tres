@@ -5,6 +5,11 @@
 [ext_resource type="Script" uid="uid://byd5rmgrxklrf" path="res://resources/entities_container_data.gd" id="3_rn4jn"]
 [ext_resource type="Script" uid="uid://u37g6bro1a2f" path="res://resources/items/flashlight_data.gd" id="4_44ewn"]
 [ext_resource type="Script" uid="uid://bucuxfvra17cc" path="res://resources/level_data.gd" id="5_vey24"]
+[ext_resource type="Script" uid="uid://bbxflmlvkbh2u" path="res://resources/items/weight/weight_data.gd" id="6_dhg6e"]
+[ext_resource type="Resource" uid="uid://dg720m2q2v0gu" path="res://content/items/battery/battery.tres" id="7_54ctq"]
+[ext_resource type="Resource" uid="uid://drusq48yijy0w" path="res://content/items/flashlight_head/flashlight_head.tres" id="8_e82y4"]
+[ext_resource type="Script" uid="uid://duv7h0ux1capc" path="res://resources/items/weight/items_container.gd" id="9_3th4j"]
+[ext_resource type="Script" uid="uid://dn4h7lqmf1apk" path="res://resources/items/items_container_data.gd" id="10_a5aia"]
 
 [sub_resource type="Resource" id="Resource_x4oov"]
 script = ExtResource("1_5iefk")
@@ -31,13 +36,37 @@ script = ExtResource("4_44ewn")
 max_duration = 90.0
 metadata/_custom_type_script = "uid://u37g6bro1a2f"
 
+[sub_resource type="Resource" id="Resource_vbfgn"]
+script = ExtResource("6_dhg6e")
+weight = 90
+item = ExtResource("7_54ctq")
+metadata/_custom_type_script = "uid://bbxflmlvkbh2u"
+
+[sub_resource type="Resource" id="Resource_gj2eg"]
+script = ExtResource("6_dhg6e")
+weight = 10
+item = ExtResource("8_e82y4")
+metadata/_custom_type_script = "uid://bbxflmlvkbh2u"
+
+[sub_resource type="Resource" id="Resource_ydj81"]
+script = ExtResource("9_3th4j")
+items = Array[ExtResource("6_dhg6e")]([SubResource("Resource_vbfgn"), SubResource("Resource_gj2eg")])
+metadata/_custom_type_script = "uid://duv7h0ux1capc"
+
+[sub_resource type="Resource" id="Resource_47j5n"]
+script = ExtResource("10_a5aia")
+probability_to_spawn = 0.05
+container = SubResource("Resource_ydj81")
+metadata/_custom_type_script = "uid://dn4h7lqmf1apk"
+
 [resource]
 script = ExtResource("5_vey24")
-id = "aoikigahara"
+id = "aokigahara"
 name = "Aokigahara"
 description = "Hundreds of disappearances caused the place to become completely overrun by ghosts. Coupled with its unsettling atmosphere, it is not a good idea to pass through here."
 difficulty = 3
 time_to_survive = 120.0
 entities_data = SubResource("Resource_pm6rs")
 flashlight_data = SubResource("Resource_pe1ox")
+spawneable_items = SubResource("Resource_47j5n")
 metadata/_custom_type_script = "uid://bucuxfvra17cc"

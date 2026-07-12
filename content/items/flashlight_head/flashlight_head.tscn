@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bx5p5dr0q8pux"]
+
+[ext_resource type="PackedScene" uid="uid://4p4v8dmrpitj" path="res://content/items/item.tscn" id="1_bkaem"]
+[ext_resource type="Resource" uid="uid://drusq48yijy0w" path="res://content/items/flashlight_head/flashlight_head.tres" id="2_gqbmg"]
+[ext_resource type="Texture2D" uid="uid://dow2bollimiv4" path="res://content/items/flashlight_head/flashlight_head.png" id="2_nex0f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_26i0q"]
+radius = 32.06244
+
+[node name="FlashlightHead" unique_id=1671323149 instance=ExtResource("1_bkaem")]
+texture = ExtResource("2_nex0f")
+property = &"flashlight"
+info = ExtResource("2_gqbmg")
+
+[node name="ClickBox" parent="Area" parent_id_path=PackedInt32Array(308940196) index="0" unique_id=1464109022]
+shape = SubResource("CircleShape2D_26i0q")
+
+[node name="Timer" parent="." index="1" unique_id=395478972]
+one_shot = true

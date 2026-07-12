@@ -3,7 +3,7 @@ extends Sprite2D
 class_name FlashlightNode
 
 @onready var light: PointLight2D = $Light
-@onready var flash_area: Area2D = $Light/Area2D
+@onready var flash_area: FlashlightArea = $Light/Area2D
 @onready var sound: AudioStreamPlayer = $Sound
 
 @export var info: FlashlightData:
@@ -13,6 +13,12 @@ class_name FlashlightNode
 		_update_info()
 
 @export var duration := 0.0
+@export var consumption := 1.0
+@export var dmg_perc: float:
+	get:
+		return flash_area.dmg_perc
+	set(value):
+		flash_area.dmg_perc = value
 
 var is_on := true
 
@@ -50,7 +56,7 @@ func turn_off() -> void:
 func _process(delta: float) -> void:
 	
 	if is_on:
-		duration -= delta
+		duration -= delta*consumption
 	
 	if duration <= 0:
 		turn_off()

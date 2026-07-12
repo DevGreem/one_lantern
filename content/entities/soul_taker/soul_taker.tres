@@ -1,0 +1,56 @@
+[gd_resource type="Resource" script_class="EntityData" format=3 uid="uid://bcaxrxppog2y1"]
+
+[ext_resource type="Script" uid="uid://6q5kx66wrigb" path="res://components/resources/limited_value.gd" id="1_jvbt0"]
+[ext_resource type="Script" uid="uid://bso22l6igjkib" path="res://resources/entities/entity_data.gd" id="2_jxwf1"]
+[ext_resource type="Texture2D" uid="uid://dak75bhq2xjt6" path="res://content/entities/soul_taker/soul_taker.png" id="3_me1je"]
+
+[sub_resource type="Resource" id="Resource_3xg2a"]
+script = ExtResource("1_jvbt0")
+_current_value = 1.0
+_max_value = 1.0
+metadata/_custom_type_script = "uid://6q5kx66wrigb"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ypox"]
+atlas = ExtResource("3_me1je")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1jal"]
+atlas = ExtResource("3_me1je")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipxds"]
+atlas = ExtResource("3_me1je")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1d5gs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ypox")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1jal")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipxds")
+}],
+"loop": 1,
+"name": &"move",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("2_jxwf1")
+id = "soul_taker"
+name = "Soul Taker"
+health = SubResource("Resource_3xg2a")
+speed = 60.0
+texture = SubResource("SpriteFrames_1d5gs")
+scene = "uid://caoa2hytf2jwh"
+spawneable_in = Array[StringName]([&"sherwood_forest", &"appalachian_mountains", &"aokigahara"])
+metadata/_custom_type_script = "uid://bso22l6igjkib"

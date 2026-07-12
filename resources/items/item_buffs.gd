@@ -13,3 +13,11 @@ func apply_buffs(obj: Object) -> void:
 	
 	for effect in effects:
 		effect.evaluate(obj)
+
+func apply_buff(obj: Object, effect: ItemEffect) -> void:
+	
+	if obj.get_script() != affect_to:
+		printerr("Object not is ", affect_to, "!")
+		return
+	
+	effect.evaluate(obj)

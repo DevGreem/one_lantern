@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://u37g6bro1a2f" path="res://resources/items/flashlight_data.gd" id="4_gqijd"]
 [ext_resource type="Script" uid="uid://bucuxfvra17cc" path="res://resources/level_data.gd" id="5_bkim8"]
 [ext_resource type="Script" uid="uid://bbxflmlvkbh2u" path="res://resources/items/weight/weight_data.gd" id="7_gqijd"]
-[ext_resource type="Resource" uid="uid://dg720m2q2v0gu" path="res://content/items/battery/battery.tres" id="8_gqijd"]
+[ext_resource type="Resource" uid="uid://drusq48yijy0w" path="res://content/items/flashlight_head/flashlight_head.tres" id="8_bkim8"]
 [ext_resource type="Script" uid="uid://duv7h0ux1capc" path="res://resources/items/weight/items_container.gd" id="9_bkim8"]
 [ext_resource type="Script" uid="uid://dn4h7lqmf1apk" path="res://resources/items/items_container_data.gd" id="9_gqijd"]
 
@@ -34,26 +34,26 @@ script = ExtResource("4_gqijd")
 max_duration = 40.0
 metadata/_custom_type_script = "uid://u37g6bro1a2f"
 
-[sub_resource type="Resource" id="Resource_bkim8"]
+[sub_resource type="Resource" id="Resource_gqbmg"]
 script = ExtResource("7_gqijd")
 weight = 100
-item = ExtResource("8_gqijd")
+item = ExtResource("8_bkim8")
 metadata/_custom_type_script = "uid://bbxflmlvkbh2u"
 
 [sub_resource type="Resource" id="Resource_gqijd"]
 script = ExtResource("9_bkim8")
-items = Array[ExtResource("7_gqijd")]([SubResource("Resource_bkim8")])
+items = Array[ExtResource("7_gqijd")]([SubResource("Resource_gqbmg")])
 metadata/_custom_type_script = "uid://duv7h0ux1capc"
 
 [sub_resource type="Resource" id="Resource_sdxlt"]
 script = ExtResource("9_gqijd")
-probability_to_spawn = 0.05
+probability_to_spawn = 0.2
 container = SubResource("Resource_gqijd")
 metadata/_custom_type_script = "uid://dn4h7lqmf1apk"
 
 [resource]
 script = ExtResource("5_bkim8")
-id = "black forest"
+id = "black_forest"
 name = "Black Forest"
 description = "A forest known for its climate and for the disappearance of people there, caused by various events."
 time_to_survive = 45.0

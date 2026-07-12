@@ -12,7 +12,9 @@ func total_weight() -> int:
 	
 	var sum := 0
 	for item in items:
-		sum += item.weight
+		
+		if item.item.can_spawn:
+			sum += item.weight
 	
 	_weight_cache.size = items.size()
 	_weight_cache.value = sum
@@ -34,3 +36,6 @@ func get_random_item() -> ItemData:
 	default.name = "NonGenerated"
 	
 	return default
+
+func update() -> void:
+	_weight_cache = WeightCache.new()

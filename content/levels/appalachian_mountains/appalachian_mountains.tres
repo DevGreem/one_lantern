@@ -1,0 +1,72 @@
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://c161xpvhvwlsn"]
+
+[ext_resource type="Script" uid="uid://diwfl8u0r6oib" path="res://components/resources/limit_range.gd" id="1_qwcdu"]
+[ext_resource type="Script" uid="uid://0d5ed3kfjiwk" path="res://components/resources/unlimit_range.gd" id="2_d2nvn"]
+[ext_resource type="Script" uid="uid://byd5rmgrxklrf" path="res://resources/entities_container_data.gd" id="3_re0q5"]
+[ext_resource type="Script" uid="uid://u37g6bro1a2f" path="res://resources/items/flashlight_data.gd" id="4_l7del"]
+[ext_resource type="Script" uid="uid://bucuxfvra17cc" path="res://resources/level_data.gd" id="5_krwbc"]
+[ext_resource type="Script" uid="uid://bbxflmlvkbh2u" path="res://resources/items/weight/weight_data.gd" id="6_al7fo"]
+[ext_resource type="Resource" uid="uid://dg720m2q2v0gu" path="res://content/items/battery/battery.tres" id="7_qig18"]
+[ext_resource type="Resource" uid="uid://drusq48yijy0w" path="res://content/items/flashlight_head/flashlight_head.tres" id="8_u5gjo"]
+[ext_resource type="Script" uid="uid://duv7h0ux1capc" path="res://resources/items/weight/items_container.gd" id="9_mf0fb"]
+[ext_resource type="Script" uid="uid://dn4h7lqmf1apk" path="res://resources/items/items_container_data.gd" id="10_s1du2"]
+
+[sub_resource type="Resource" id="Resource_53rxf"]
+script = ExtResource("1_qwcdu")
+_min_value = 1.0
+_max_value = 2.0
+metadata/_custom_type_script = "uid://diwfl8u0r6oib"
+
+[sub_resource type="Resource" id="Resource_05xhy"]
+script = ExtResource("2_d2nvn")
+_min_value = 2.0
+_max_value = 1.0
+metadata/_custom_type_script = "uid://0d5ed3kfjiwk"
+
+[sub_resource type="Resource" id="Resource_gjqap"]
+script = ExtResource("3_re0q5")
+time_between_enemy_spawns = 6.0
+range_time_between_spawns = SubResource("Resource_05xhy")
+range_between_spawns = 25.0
+cantity_between_spawns = SubResource("Resource_53rxf")
+metadata/_custom_type_script = "uid://byd5rmgrxklrf"
+
+[sub_resource type="Resource" id="Resource_oamro"]
+script = ExtResource("4_l7del")
+max_duration = 70.0
+metadata/_custom_type_script = "uid://u37g6bro1a2f"
+
+[sub_resource type="Resource" id="Resource_fwqba"]
+script = ExtResource("6_al7fo")
+weight = 75
+item = ExtResource("7_qig18")
+metadata/_custom_type_script = "uid://bbxflmlvkbh2u"
+
+[sub_resource type="Resource" id="Resource_gh8yd"]
+script = ExtResource("6_al7fo")
+weight = 25
+item = ExtResource("8_u5gjo")
+metadata/_custom_type_script = "uid://bbxflmlvkbh2u"
+
+[sub_resource type="Resource" id="Resource_ywi8k"]
+script = ExtResource("9_mf0fb")
+items = Array[ExtResource("6_al7fo")]([SubResource("Resource_fwqba"), SubResource("Resource_gh8yd")])
+metadata/_custom_type_script = "uid://duv7h0ux1capc"
+
+[sub_resource type="Resource" id="Resource_16pcp"]
+script = ExtResource("10_s1du2")
+probability_to_spawn = 0.13
+container = SubResource("Resource_ywi8k")
+metadata/_custom_type_script = "uid://dn4h7lqmf1apk"
+
+[resource]
+script = ExtResource("5_krwbc")
+id = "appalachian_mountains"
+name = "Appalachian Mountains"
+description = "Since its very beginning, this has been a forest filled with mysteries, disappearances, and unimaginable creatures. Survival is a true challenge..."
+difficulty = 2
+time_to_survive = 90.0
+entities_data = SubResource("Resource_gjqap")
+flashlight_data = SubResource("Resource_oamro")
+spawneable_items = SubResource("Resource_16pcp")
+metadata/_custom_type_script = "uid://bucuxfvra17cc"

@@ -3,18 +3,22 @@ extends CharacterBody2D
 
 class_name Entity
 
+@warning_ignore("unused_signal")
+signal on_lightned
+
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var on_screen: OnScreenCollisionShape = $OnScreen
 @onready var animation: AnimationPlayer = $Animation
+@onready var items_node: Node = $"../../Items"
 
 @export var level: LevelNode
 @export var info: EntityData:
 	set(value):
-		
 		info = value
 		
 		if info:
 			info = info.duplicate(true)
+			print("Info After duplicate: ", info.to_dict())
 			_update_info()
 			
 @export var target: Player:
@@ -67,7 +71,9 @@ func die() -> void:
 	
 	if item:
 		var node: ItemNode = load(item.scene).instantiate()
-		level.items.add_child(node)
+		node.global_position = self.global_position
+		node.node = level.player
+		items_node.add_child(node)
 	
 	self.queue_free()
 
@@ -100,9 +106,12 @@ func _take_step(delta: float):
 	if is_paused:
 		return
 	
-	var speed := self.global_position.direction_to(target.global_position)
-	
-	self.velocity = speed*info.speed
+	if can_move:
+		var speed := self.global_position.direction_to(target.global_position)
+		
+		self.velocity = speed*info.speed
+	else:
+		self.velocity = Vector2.ZERO
 	
 	move_and_slide()
 

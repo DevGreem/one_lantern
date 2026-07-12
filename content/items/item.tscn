@@ -11,4 +11,6 @@ script = ExtResource("2_1b0rg")
 
 [node name="ClickBox" type="CollisionShape2D" parent="Area" unique_id=1464109022]
 
+[node name="Timer" type="Timer" parent="." unique_id=395478972]
+
 [connection signal="input_event" from="Area" to="Area" method="_on_input_event"]

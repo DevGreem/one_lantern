@@ -9,6 +9,7 @@ size = Vector2(33, 38)
 
 [node name="Battery" unique_id=1671323149 instance=ExtResource("1_sm6s7")]
 texture = ExtResource("2_143uo")
+property = &"flashlight"
 info = ExtResource("2_fhtyj")
 
 [node name="ClickBox" parent="Area" parent_id_path=PackedInt32Array(308940196) index="0" unique_id=1464109022]

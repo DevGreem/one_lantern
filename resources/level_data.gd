@@ -18,7 +18,7 @@ enum Difficulty {
 		if not Engine.is_editor_hint():
 			return
 		
-		id = name.to_lower()
+		id = name.to_lower().replace(" ", "_")
 @export var description: String
 @export var difficulty: Difficulty
 

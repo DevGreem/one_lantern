@@ -12,7 +12,6 @@
 [ext_resource type="Script" uid="uid://71ubu23g31ph" path="res://scenes/level/time_remaining_label.gd" id="5_m0bv2"]
 [ext_resource type="Script" uid="uid://cqse8hivi4qt2" path="res://components/nodes/point_light/no_rotable_light.gd" id="5_wcngd"]
 [ext_resource type="Script" uid="uid://b12431f3s5y1o" path="res://scenes/level/battery.gd" id="6_pe1ox"]
-[ext_resource type="PackedScene" uid="uid://cjkfy0tem0lyc" path="res://content/items/battery/battery.tscn" id="13_b7m21"]
 
 [sub_resource type="Resource" id="Resource_sytrn"]
 script = ExtResource("2_tf2q7")
@@ -102,6 +101,7 @@ property = &"time_left"
 visible = false
 color = Color(0, 0, 0, 1)
 script = ExtResource("1_qkmgm")
+visible_in_game = false
 
 [node name="Map" type="Node" parent="." unique_id=668412118]
 
@@ -126,11 +126,6 @@ level = NodePath("..")
 [node name="Player" parent="Entities" unique_id=1273766590 instance=ExtResource("3_i166f")]
 
 [node name="Items" type="Node" parent="." unique_id=1823804780]
-
-[node name="Battery" parent="Items" unique_id=1671323149 node_paths=PackedStringArray("node") instance=ExtResource("13_b7m21")]
-position = Vector2(-410, 70)
-node = NodePath("../../Entities/Player")
-property = &"flashlight"
 
 [node name="Timer" type="Timer" parent="." unique_id=1849058828]
 one_shot = true

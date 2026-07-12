@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://drusq48yijy0w"]
+
+[ext_resource type="Script" uid="uid://i8ddribp5vv" path="res://resources/items/item_data.gd" id="1_0yu2l"]
+[ext_resource type="Script" uid="uid://hn2hoqdsx3b8" path="res://content/items/flashlight/flashlight.gd" id="1_2thkw"]
+[ext_resource type="Script" uid="uid://c4erfvskj4rmr" path="res://resources/items/item_effect.gd" id="2_bahu0"]
+[ext_resource type="Script" uid="uid://p247uu332ouv" path="res://content/items/flashlight_head/give_damage.gd" id="3_6wnn1"]
+[ext_resource type="Script" uid="uid://cnan7aikrbxer" path="res://resources/items/item_buffs.gd" id="3_26i0q"]
+[ext_resource type="Texture2D" uid="uid://dow2bollimiv4" path="res://content/items/flashlight_head/flashlight_head.png" id="5_bahu0"]
+
+[sub_resource type="Resource" id="Resource_tsf2a"]
+script = ExtResource("2_bahu0")
+to_property = &"dmg_perc"
+operator = "="
+effect = 1.2
+action = ExtResource("3_6wnn1")
+metadata/_custom_type_script = "uid://c4erfvskj4rmr"
+
+[sub_resource type="Resource" id="Resource_0yu2l"]
+script = ExtResource("3_26i0q")
+affect_to = ExtResource("1_2thkw")
+effects = Array[ExtResource("2_bahu0")]([SubResource("Resource_tsf2a")])
+metadata/_custom_type_script = "uid://cnan7aikrbxer"
+
+[resource]
+script = ExtResource("1_0yu2l")
+id = "flashlight_head"
+name = "Flashlight Head"
+texture = ExtResource("5_bahu0")
+buffs = SubResource("Resource_0yu2l")
+scene = "uid://bx5p5dr0q8pux"
+metadata/_custom_type_script = "uid://i8ddribp5vv"
