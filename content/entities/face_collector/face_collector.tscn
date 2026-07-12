@@ -2,8 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://cyrsrs3awowdg" path="res://content/entities/entity.tscn" id="1_nye7o"]
 [ext_resource type="Script" uid="uid://bj8pnibmat3cd" path="res://content/entities/face_collector/face_collector.gd" id="2_os7tt"]
-[ext_resource type="Resource" uid="uid://dpcdl45dny1rf" path="res://content/entities/face_collector/face_collector.tres" id="3_eye4t"]
+[ext_resource type="Resource" uid="uid://dpcdl45dny1rf" path="res://content/entities/face_collector/face_collector.tres" id="3_bm1ug"]
 [ext_resource type="SpriteFrames" uid="uid://b55vcx7ku7e61" path="res://content/entities/face_collector/face_collector_frames.tres" id="4_eye4t"]
+[ext_resource type="AudioStream" uid="uid://dj33wbwduxjq4" path="res://assets/audio/steps_3.mp3" id="5_os7tt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ljfvk"]
 radius = 23.0
@@ -25,7 +26,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_bm1ug"]
 resource_name = "quit_face"
-length = 0.5
+length = 0.75
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -33,7 +34,7 @@ tracks/0/path = NodePath("Sprite")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.75),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [&"quit_face", 1.0, false],
@@ -50,7 +51,7 @@ tracks/1/path = NodePath(".:can_move")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.75),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -64,17 +65,23 @@ _data = {
 
 [node name="FaceCollector" unique_id=588095885 instance=ExtResource("1_nye7o")]
 script = ExtResource("2_os7tt")
-info = ExtResource("3_eye4t")
+true_face_speed = 150.0
+info = ExtResource("3_bm1ug")
 
 [node name="Sprite" parent="." index="0" unique_id=1561370122]
 sprite_frames = ExtResource("4_eye4t")
+animation = &"quit_face"
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=1939832832]
 position = Vector2(-1, 5)
 shape = SubResource("CircleShape2D_ljfvk")
 
 [node name="OnScreen" parent="." index="2" unique_id=992317005]
-position = Vector2(-7, 6.5)
+position = Vector2(-1, 5)
+rect = Rect2(-23, -23, 46, 46)
 
 [node name="Animation" parent="." index="3" unique_id=1117126664]
 libraries/ = SubResource("AnimationLibrary_os7tt")
+
+[node name="Audio" parent="." index="4" unique_id=547403392]
+stream = ExtResource("5_os7tt")

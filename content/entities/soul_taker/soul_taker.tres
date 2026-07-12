@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://6q5kx66wrigb" path="res://components/resources/limited_value.gd" id="1_jvbt0"]
 [ext_resource type="Script" uid="uid://bso22l6igjkib" path="res://resources/entities/entity_data.gd" id="2_jxwf1"]
+[ext_resource type="AudioStream" uid="uid://sbluy0qnx7q4" path="res://assets/audio/steps_2.mp3" id="3_jxwf1"]
 [ext_resource type="Texture2D" uid="uid://dak75bhq2xjt6" path="res://content/entities/soul_taker/soul_taker.png" id="3_me1je"]
 
 [sub_resource type="Resource" id="Resource_3xg2a"]
@@ -49,8 +50,9 @@ script = ExtResource("2_jxwf1")
 id = "soul_taker"
 name = "Soul Taker"
 health = SubResource("Resource_3xg2a")
-speed = 60.0
+speed = 48.0
 texture = SubResource("SpriteFrames_1d5gs")
+spawn_audio = ExtResource("3_jxwf1")
 scene = "uid://caoa2hytf2jwh"
 spawneable_in = Array[StringName]([&"sherwood_forest", &"appalachian_mountains", &"aokigahara"])
 metadata/_custom_type_script = "uid://bso22l6igjkib"

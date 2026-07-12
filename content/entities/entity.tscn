@@ -27,3 +27,8 @@ script = ExtResource("2_xrf82")
 collision = NodePath("../CollisionShape2D")
 
 [node name="Animation" type="AnimationPlayer" parent="." unique_id=1117126664]
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="." unique_id=547403392]
+autoplay = true
+max_polyphony = 100
+bus = &"Effects"

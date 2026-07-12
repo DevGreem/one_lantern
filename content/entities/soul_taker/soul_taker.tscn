@@ -2,33 +2,27 @@
 
 [ext_resource type="PackedScene" uid="uid://cyrsrs3awowdg" path="res://content/entities/entity.tscn" id="1_mi1q0"]
 [ext_resource type="Script" uid="uid://c35jq3kp3b5xp" path="res://content/entities/soul_taker/soul_taker.gd" id="2_1aw0x"]
-[ext_resource type="Script" uid="uid://6q5kx66wrigb" path="res://components/resources/limited_value.gd" id="2_n0mir"]
-[ext_resource type="Script" uid="uid://bso22l6igjkib" path="res://resources/entities/entity_data.gd" id="3_1aw0x"]
+[ext_resource type="Resource" uid="uid://bcaxrxppog2y1" path="res://content/entities/soul_taker/soul_taker.tres" id="3_n0mir"]
 [ext_resource type="Texture2D" uid="uid://dak75bhq2xjt6" path="res://content/entities/soul_taker/soul_taker.png" id="4_c3qrn"]
+[ext_resource type="AudioStream" uid="uid://sbluy0qnx7q4" path="res://assets/audio/steps_2.mp3" id="5_1aw0x"]
 
-[sub_resource type="Resource" id="Resource_1aw0x"]
-script = ExtResource("2_n0mir")
-_current_value = 1.0
-_max_value = 1.0
-metadata/_custom_type_script = "uid://6q5kx66wrigb"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c3qrn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ypox"]
 atlas = ExtResource("4_c3qrn")
 region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e71xb"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1jal"]
 atlas = ExtResource("4_c3qrn")
 region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g2ekj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipxds"]
 atlas = ExtResource("4_c3qrn")
 region = Rect2(128, 0, 128, 128)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_tkj5o"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_1d5gs"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_c3qrn")
+"texture": SubResource("AtlasTexture_7ypox")
 }],
 "loop": 1,
 "name": &"default",
@@ -36,35 +30,25 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e71xb")
+"texture": SubResource("AtlasTexture_u1jal")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_g2ekj")
+"texture": SubResource("AtlasTexture_ipxds")
 }],
 "loop": 1,
 "name": &"move",
 "speed": 5.0
 }]
 
-[sub_resource type="Resource" id="Resource_6vapn"]
-script = ExtResource("3_1aw0x")
-id = "soultaker"
-name = "Soul Taker"
-health = SubResource("Resource_1aw0x")
-speed = 100.0
-texture = SubResource("SpriteFrames_tkj5o")
-scene = "uid://caoa2hytf2jwh"
-metadata/_custom_type_script = "uid://bso22l6igjkib"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8h66"]
 size = Vector2(44, 54)
 
 [node name="SoulTaker" unique_id=588095885 instance=ExtResource("1_mi1q0")]
 script = ExtResource("2_1aw0x")
-info = SubResource("Resource_6vapn")
+info = ExtResource("3_n0mir")
 
 [node name="Sprite" parent="." index="0" unique_id=1561370122]
-sprite_frames = SubResource("SpriteFrames_tkj5o")
+sprite_frames = SubResource("SpriteFrames_1d5gs")
 animation = &"move"
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=1939832832]
@@ -74,3 +58,7 @@ shape = SubResource("RectangleShape2D_w8h66")
 [node name="OnScreen" parent="." index="2" unique_id=992317005]
 position = Vector2(-1, 14)
 rect = Rect2(-22, -27, 44, 54)
+
+[node name="Audio" parent="." index="4" unique_id=547403392]
+stream = ExtResource("5_1aw0x")
+volume_db = -12.969

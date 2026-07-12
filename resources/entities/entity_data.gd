@@ -15,6 +15,7 @@ class_name EntityData
 @export var health: LimitedValue
 @export var speed: float
 @export var texture: SpriteFrames
+@export var spawn_audio: AudioStream
 
 @export_file("*.tscn") var scene: String
 

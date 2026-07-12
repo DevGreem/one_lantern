@@ -22,4 +22,7 @@ position = Vector2(42, -12)
 position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_obaep")
 
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=1953798678]
+current = true
+
 [connection signal="body_entered" from="Area" to="." method="_on_body_entered"]

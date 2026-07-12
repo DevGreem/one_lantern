@@ -2,6 +2,7 @@
 extends Entity
 
 var _first_lightned := true
+@export var true_face_speed := 150.0
 
 func _ready():
 	
@@ -28,4 +29,4 @@ func _on_finish_animation(anim: StringName) -> void:
 	
 	if anim == &"quit_face":
 		animation.process_mode = Node.PROCESS_MODE_DISABLED
-		self.info.speed = 150
+		self.info.speed = true_face_speed

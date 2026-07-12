@@ -101,7 +101,6 @@ property = &"time_left"
 visible = false
 color = Color(0, 0, 0, 1)
 script = ExtResource("1_qkmgm")
-visible_in_game = false
 
 [node name="Map" type="Node" parent="." unique_id=668412118]
 

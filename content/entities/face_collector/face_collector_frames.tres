@@ -86,7 +86,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"move_without_face",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -106,5 +106,5 @@ animations = [{
 }],
 "loop": 0,
 "name": &"quit_face",
-"speed": 8.0
+"speed": 6.0
 }]

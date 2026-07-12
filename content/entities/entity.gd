@@ -10,15 +10,19 @@ signal on_lightned
 @onready var on_screen: OnScreenCollisionShape = $OnScreen
 @onready var animation: AnimationPlayer = $Animation
 @onready var items_node: Node = $"../../Items"
+@onready var audio: AudioStreamPlayer2D = $Audio
 
 @export var level: LevelNode
 @export var info: EntityData:
 	set(value):
 		info = value
+		print("SET: ", info)
 		
 		if info:
-			info = info.duplicate(true)
-			print("Info After duplicate: ", info.to_dict())
+			
+			if not Engine.is_editor_hint():
+				info = info.duplicate(true)
+			
 			_update_info()
 			
 @export var target: Player:
@@ -37,6 +41,7 @@ var is_paused := false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
+	print(get_viewport().size)
 	if info:
 		_update_info()
 	
@@ -53,6 +58,7 @@ func _ready() -> void:
 		on_screen.screen_exited.connect(_on_exit_screen)
 	
 	into_screen = on_screen.is_on_screen()
+	print(audio.stream)
 
 func _process(_delta: float):
 	
@@ -91,6 +97,11 @@ func _update_info() -> void:
 	
 	if info.texture:
 		sprite.sprite_frames = info.texture
+	
+	if not Engine.is_editor_hint():
+		return
+	
+	audio.stream = info.spawn_audio
 
 func _update_look() -> void:
 	

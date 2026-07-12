@@ -3,28 +3,29 @@
 [ext_resource type="PackedScene" uid="uid://cyrsrs3awowdg" path="res://content/entities/entity.tscn" id="1_0jw7e"]
 [ext_resource type="Script" uid="uid://c0qwhkw1nkdob" path="res://content/entities/heartrending/heartrending.gd" id="2_fa17q"]
 [ext_resource type="Texture2D" uid="uid://cilmy1sfr025m" path="res://content/entities/heartrending/heartrending.png" id="3_8hxiy"]
-[ext_resource type="Script" uid="uid://6q5kx66wrigb" path="res://components/resources/limited_value.gd" id="3_rnfec"]
-[ext_resource type="Script" uid="uid://bso22l6igjkib" path="res://resources/entities/entity_data.gd" id="4_16p5b"]
+[ext_resource type="Script" uid="uid://6q5kx66wrigb" path="res://components/resources/limited_value.gd" id="3_16p5b"]
+[ext_resource type="AudioStream" uid="uid://crl68dgqkwwnc" path="res://assets/audio/steps.mp3" id="4_8hxiy"]
+[ext_resource type="Script" uid="uid://bso22l6igjkib" path="res://resources/entities/entity_data.gd" id="4_ps3jo"]
 
-[sub_resource type="Resource" id="Resource_rnfec"]
-script = ExtResource("3_rnfec")
+[sub_resource type="Resource" id="Resource_16p5b"]
+script = ExtResource("3_16p5b")
 _current_value = 3.0
 _max_value = 3.0
 metadata/_custom_type_script = "uid://6q5kx66wrigb"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_16p5b"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ps3jo"]
 atlas = ExtResource("3_8hxiy")
 region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ps3jo"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipog8"]
 atlas = ExtResource("3_8hxiy")
 region = Rect2(128, 0, 128, 128)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ipog8"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_0fqpo"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_16p5b")
+"texture": SubResource("AtlasTexture_ps3jo")
 }],
 "loop": 0,
 "name": &"default",
@@ -32,24 +33,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_16p5b")
+"texture": SubResource("AtlasTexture_ps3jo")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ps3jo")
+"texture": SubResource("AtlasTexture_ipog8")
 }],
 "loop": 1,
 "name": &"moving",
 "speed": 10.0
 }]
 
-[sub_resource type="Resource" id="Resource_0fqpo"]
-script = ExtResource("4_16p5b")
+[sub_resource type="Resource" id="Resource_nfqi0"]
+script = ExtResource("4_ps3jo")
 id = "heartrending"
 name = "Heartrending"
-health = SubResource("Resource_rnfec")
+health = SubResource("Resource_16p5b")
 speed = 50.0
-texture = SubResource("SpriteFrames_ipog8")
+texture = SubResource("SpriteFrames_0fqpo")
+spawn_audio = ExtResource("4_8hxiy")
 scene = "uid://cvbvier01rle3"
+spawneable_in = Array[StringName]([&"black_forest", &"sherwood_forest", &"aokigahara"])
 metadata/_custom_type_script = "uid://bso22l6igjkib"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrf82"]
@@ -112,11 +115,11 @@ _data = {
 
 [node name="Heartrending" unique_id=588095885 instance=ExtResource("1_0jw7e")]
 script = ExtResource("2_fa17q")
-info = SubResource("Resource_0fqpo")
+info = SubResource("Resource_nfqi0")
 can_move = false
 
 [node name="Sprite" parent="." index="0" unique_id=1561370122]
-sprite_frames = SubResource("SpriteFrames_ipog8")
+sprite_frames = SubResource("SpriteFrames_0fqpo")
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=1939832832]
 position = Vector2(-4, 3.5)
@@ -128,6 +131,10 @@ rect = Rect2(-25, -51.5, 50, 103)
 
 [node name="Animation" parent="." index="3" unique_id=1117126664]
 libraries/ = SubResource("AnimationLibrary_ps3jo")
+
+[node name="Audio" parent="." index="4" unique_id=547403392]
+stream = ExtResource("4_8hxiy")
+volume_db = -22.0
 
 [connection signal="screen_entered" from="OnScreen" to="." method="_on_enter_screen"]
 [connection signal="screen_exited" from="OnScreen" to="." method="_on_exit_screen"]
