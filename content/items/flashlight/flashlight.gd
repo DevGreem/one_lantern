@@ -12,7 +12,9 @@ class_name FlashlightNode
 		info = value
 		_update_info()
 
-@export var duration := 0.0
+@export var duration := 0.0:
+	set(value):
+		duration = clamp(value, 0, info.max_duration)
 @export var consumption := 1.0
 @export var dmg_perc: float:
 	get:

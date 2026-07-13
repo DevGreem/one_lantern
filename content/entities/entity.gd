@@ -37,6 +37,7 @@ signal on_lightned
 
 var into_screen := false
 var is_paused := false
+var spawn_pos: Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -58,6 +59,7 @@ func _ready() -> void:
 		on_screen.screen_exited.connect(_on_exit_screen)
 	
 	into_screen = on_screen.is_on_screen()
+	spawn_pos = global_position
 	print(audio.stream)
 
 func _process(_delta: float):

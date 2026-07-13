@@ -33,7 +33,7 @@ metadata/_custom_type_script = "uid://byd5rmgrxklrf"
 
 [sub_resource type="Resource" id="Resource_pe1ox"]
 script = ExtResource("4_44ewn")
-max_duration = 90.0
+max_duration = 75.0
 metadata/_custom_type_script = "uid://u37g6bro1a2f"
 
 [sub_resource type="Resource" id="Resource_vbfgn"]

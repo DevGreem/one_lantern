@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cvs0l3i6awaav"]
+
+[ext_resource type="Script" uid="uid://bjqwiyg1xijro" path="res://scenes/pause_menu/pause_menu.gd" id="1_10tpt"]
+[ext_resource type="Script" uid="uid://dw2w5x7mwady8" path="res://components/nodes/controls/buttons/unpause_scene_button.gd" id="2_qcmsd"]
+
+[node name="Pause" type="CenterContainer" unique_id=164302986]
+process_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_10tpt")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1774389481]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1319681218]
+layout_mode = 2
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1459043560]
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1791273168]
+layout_mode = 2
+text = "Resume"
+
+[node name="UnpauseSceneButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1185051240]
+layout_mode = 2
+text = "Return"
+script = ExtResource("2_qcmsd")
+scene_dir = "uid://csw2gi3sfvjoo"
+metadata/_custom_type_script = "uid://dw2w5x7mwady8"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ResumeButton" to="VBoxContainer/HBoxContainer/ResumeButton" method="_on_pressed"]

@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://ggmwr4vtnafc"]
+
+[ext_resource type="Script" uid="uid://b12431f3s5y1o" path="res://scenes/level/battery.gd" id="1_10h8b"]
+[ext_resource type="Script" uid="uid://71ubu23g31ph" path="res://scenes/level/time_remaining_label.gd" id="2_l5vwq"]
+
+[node name="UI" type="MarginContainer" unique_id=959047683]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+
+[node name="Battery" type="HBoxContainer" parent="." unique_id=369249692]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="Battery" unique_id=484539263]
+layout_mode = 2
+text = "Battery: "
+
+[node name="ProgressBar" type="ProgressBar" parent="Battery" unique_id=176873976 node_paths=PackedStringArray("player")]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+script = ExtResource("1_10h8b")
+player = NodePath("")
+metadata/_edit_use_anchors_ = true
+
+[node name="Hour" type="HBoxContainer" parent="." unique_id=1614037945]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="Hour" unique_id=232590477]
+layout_mode = 2
+text = "Time Left:"
+
+[node name="TimeRemaining" type="Label" parent="Hour" unique_id=1186048780 node_paths=PackedStringArray("node")]
+layout_mode = 2
+text = "0"
+script = ExtResource("2_l5vwq")
+node = NodePath("")
+property = &"time_left"

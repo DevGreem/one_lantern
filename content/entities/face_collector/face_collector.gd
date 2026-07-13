@@ -21,6 +21,9 @@ func _ready():
 
 func _on_lightned() -> void:
 	
+	if Engine.is_editor_hint():
+		return
+	
 	if _first_lightned:
 		_first_lightned = false
 		animation.play("quit_face")
