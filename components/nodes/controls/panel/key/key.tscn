@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b4j0v7dykru0g"]
 
-[ext_resource type="Texture2D" uid="uid://oqh8xvoq6w0u" path="res://assets/key.png" id="1_lgwjk"]
+[ext_resource type="Texture2D" uid="uid://oqh8xvoq6w0u" path="res://assets/buttons/key.png" id="1_lgwjk"]
 [ext_resource type="Script" uid="uid://b7ctfjdwfe11v" path="res://components/nodes/controls/show_property/key/key.gd" id="2_kfgsg"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_obaep"]
