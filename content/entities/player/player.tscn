@@ -5,21 +5,21 @@
 [ext_resource type="PackedScene" uid="uid://ttkphw6xl83b" path="res://content/items/flashlight/flashlight.tscn" id="4_t4ell"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_obaep"]
-size = Vector2(96, 20)
+size = Vector2(70, 18)
 
 [node name="Player" type="Sprite2D" unique_id=1331614616]
-texture_filter = 2
 texture = ExtResource("1_lwocm")
 script = ExtResource("2_t4ell")
 metadata/_edit_lock_ = true
 
 [node name="Flashlight" parent="." unique_id=683669194 instance=ExtResource("4_t4ell")]
-position = Vector2(42, -12)
+z_index = -1
+position = Vector2(29, -22)
 
 [node name="Area" type="Area2D" parent="." unique_id=1540571411]
 
 [node name="Hitbox" type="CollisionShape2D" parent="Area" unique_id=741517242]
-position = Vector2(-1, 0)
+position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_obaep")
 
 [node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=1953798678]
