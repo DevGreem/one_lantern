@@ -15,5 +15,6 @@ class_name ItemData
 @export var texture: Texture2D
 @export var buffs: ItemBuffs
 @export var can_spawn := true
+@export var despawn_time := 5.0
 
 @export_file("*.tscn") var scene: String

@@ -57,12 +57,23 @@ player = NodePath("../../../../Entities/Player")
 [node name="TimeRemaining" parent="Menus/UI/Hour" parent_id_path=PackedInt32Array(959047683, 1614037945) index="1" unique_id=1186048780 node_paths=PackedStringArray("node")]
 node = NodePath("../../../../Timer")
 
-[node name="Pause" parent="Menus" unique_id=164302986 instance=ExtResource("5_m0bv2")]
+[node name="MarginUI" type="MarginContainer" parent="Menus" unique_id=1203072112]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = -350
+
+[node name="Pause" parent="Menus/MarginUI" unique_id=164302986 instance=ExtResource("5_m0bv2")]
 visible = false
+layout_mode = 2
 
-[node name="Win" parent="Menus" unique_id=18758931 instance=ExtResource("2_xv074")]
+[node name="Win" parent="Menus/MarginUI" unique_id=18758931 instance=ExtResource("2_xv074")]
+layout_mode = 2
 
-[node name="Lose" parent="Menus" unique_id=1937533335 instance=ExtResource("3_sytrn")]
+[node name="Lose" parent="Menus/MarginUI" unique_id=1937533335 instance=ExtResource("3_sytrn")]
+layout_mode = 2
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1286903451]
 visible = false

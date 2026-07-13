@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://hn2hoqdsx3b8" path="res://content/items/flashlight/flashlight.gd" id="2_ohbhm"]
 [ext_resource type="Script" uid="uid://u37g6bro1a2f" path="res://resources/items/flashlight_data.gd" id="3_0ohff"]
 [ext_resource type="Texture2D" uid="uid://bmkaeurpic6oc" path="res://content/items/flashlight/light2048_v2.png" id="4_42lpi"]
-[ext_resource type="AudioStream" uid="uid://c2x2e400hedmk" path="res://sounds/toggle_flashlight.mp3" id="4_wcsy3"]
+[ext_resource type="AudioStream" uid="uid://c2x2e400hedmk" path="res://assets/audio/toggle_flashlight.mp3" id="4_wcsy3"]
 
 [sub_resource type="Resource" id="Resource_pe1ox"]
 script = ExtResource("3_0ohff")

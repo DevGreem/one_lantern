@@ -13,9 +13,12 @@ grow_vertical = 2
 [node name="Container" type="VBoxContainer" parent="." unique_id=826500048]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Container" unique_id=70933145]
+[node name="Label" type="RichTextLabel" parent="Container" unique_id=1846297407]
 layout_mode = 2
-text = "You lose!"
+bbcode_enabled = true
+text = "You [color=red]died[/color]..."
+fit_content = true
+autowrap_mode = 0
 
 [node name="Button" type="Button" parent="Container" unique_id=1044819527]
 layout_mode = 2

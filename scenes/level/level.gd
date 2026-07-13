@@ -5,8 +5,8 @@ class_name LevelNode
 @onready var camera: Camera2D = $Camera2D
 @onready var entities_container: EntitiesContainer = $Entities
 @onready var player: Player = $Entities/Player
-@onready var lose: CenterContainer = $Menus/Lose
-@onready var win: CenterContainer = $Menus/Win
+@onready var lose: CenterContainer = $Menus/MarginUI/Lose
+@onready var win: WinMenuNode = $Menus/MarginUI/Win
 @onready var timer: Timer = $Timer
 @onready var ui: Control = $Menus/UI
 
@@ -36,4 +36,4 @@ func _process(_delta) -> void:
 
 func _on_survive() -> void:
 	get_tree().paused = true
-	win.show()
+	win.win(info)

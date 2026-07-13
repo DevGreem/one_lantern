@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://co4sna7lm65ln"]
 
 [ext_resource type="Script" uid="uid://dw2w5x7mwady8" path="res://components/nodes/controls/buttons/unpause_scene_button.gd" id="1_7y53v"]
+[ext_resource type="Script" uid="uid://dltps7p6mmuqw" path="res://scenes/win_menu/win_menu_node.gd" id="1_ypc00"]
 
 [node name="Win" type="CenterContainer" unique_id=18758931]
 visible = false
@@ -9,13 +10,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ypc00")
 
 [node name="Container" type="VBoxContainer" parent="." unique_id=1025884786]
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Container" unique_id=1648603949]
 layout_mode = 2
-text = "You Win!"
+text = "You survived {0}!"
 
 [node name="Button" type="Button" parent="Container" unique_id=1468634729]
 layout_mode = 2

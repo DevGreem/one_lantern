@@ -14,6 +14,8 @@ class_name ItemNode
 @onready var area: ItemArea = $Area
 @onready var timer: Timer = $Timer
 
+var blinking := false
+
 func _ready() -> void:
 	_update_info()
 	
@@ -23,6 +25,30 @@ func _ready() -> void:
 	if not area.pressed.is_connected(_on_pressed):
 		area.pressed.connect(_on_pressed)
 	
+	timer.wait_time = info.despawn_time
+	timer.start()
+
+func _process(_delta):
+	
+	if Engine.is_editor_hint():
+		return
+	
+	if !blinking and timer.time_left <= timer.wait_time * 0.3:
+		_blink()
+		blinking = true
+
+func _blink() -> void:
+	
+	while timer.time_left > 0:
+		
+		var tween := create_tween()
+		tween.tween_property(self, "modulate:a", 0.4, 0.2)
+		await tween.finished
+		
+		tween = create_tween()
+		tween.tween_property(self, "modulate:a", 1, 0.2)
+		await tween.finished
+
 func _update_info() -> void:
 	
 	if not info:
@@ -43,4 +69,8 @@ func _on_pressed() -> void:
 		
 		info.buffs.apply_buffs(obj)
 	
+	self.queue_free()
+
+
+func _on_timer_timeout() -> void:
 	self.queue_free()
