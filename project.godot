@@ -35,6 +35,10 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg", "res:/
 
 enemy="Only enemy entities"
 
+[gui]
+
+theme/custom_font="uid://b57d7rk1sif4r"
+
 [input]
 
 light={

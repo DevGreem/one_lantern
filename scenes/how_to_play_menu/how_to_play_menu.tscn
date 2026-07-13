@@ -1,5 +1,15 @@
 [gd_scene format=3 uid="uid://bqdfr5apiqdw4"]
 
+[ext_resource type="Script" uid="uid://n4htfoxb2d2v" path="res://components/nodes/controls/buttons/scene_button.gd" id="1_w3542"]
+[ext_resource type="PackedScene" uid="uid://b4j0v7dykru0g" path="res://components/nodes/controls/panel/key/key.tscn" id="2_i6w42"]
+[ext_resource type="PackedScene" uid="uid://b7bt0d0ngoslo" path="res://components/nodes/controls/texture_rect/mouse/mouse.tscn" id="2_l4ig1"]
+[ext_resource type="Texture2D" uid="uid://78u7w1axiqbb" path="res://assets/mouse_left.png" id="3_dikor"]
+[ext_resource type="Script" uid="uid://b5ukjfhf080f3" path="res://components/nodes/controls/texture_rect/mouse/buttons.gd" id="4_s1684"]
+
+[sub_resource type="Resource" id="Resource_itdpd"]
+script = ExtResource("4_s1684")
+left = ExtResource("3_dikor")
+
 [node name="HowToPlayMenu" type="Panel" unique_id=341776193]
 anchors_preset = 15
 anchor_right = 1.0
@@ -7,10 +17,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="." unique_id=1608913160]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=821622537]
+top_level = true
+z_index = 100
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_right = 73.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+
+[node name="ReturnButton" type="Button" parent="MarginContainer" unique_id=1351390556]
+layout_mode = 2
+text = "Return"
+script = ExtResource("1_w3542")
+scene_dir = "uid://b8gnf1gk5kjyr"
+metadata/_custom_type_script = "uid://n4htfoxb2d2v"
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=638205103]
 layout_mode = 1
@@ -19,3 +40,65 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1933271845]
+custom_minimum_size = Vector2(1000, -1)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer/VBoxContainer" unique_id=658566400]
+layout_mode = 2
+bbcode_enabled = true
+text = "Hello! Welcome to One Lantern!
+
+Look, the rules are very simple: 
+
+[color=red]1.[/color] Your goal is simply to survive for a certain amount of time (which you can see in the top right corner of the screen when starting a level).
+
+[color=red]2.[/color] As you progress through the levels, you'll encounter various types of monsters—I won't spoil what they are; it's a surprise. You'll have to learn how to deal with them!
+
+[color=red]3.[/color] To keep them from killing you, you need to shine your flashlight on them; this allows you to see them and take them out at the same time. And yes, in case you're wondering, you'll be in total darkness! Your ears and your flashlight will be your best companions :).
+
+[color=red]4.[/color] Monsters have a small chance of dropping certain items, but I won't tell you what they do—discover that for yourself!
+
+I recommend playing with headphones for the best experience!
+[hr]
+[font_size=30][u][color=yellow]Controls:[/color][/u][/font_size]"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=1369238822]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 64
+
+[node name="ClickMouse" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1799597691]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/ClickMouse" unique_id=1640363689]
+layout_mode = 2
+text = "Turn on flashlight"
+
+[node name="Mouse" parent="CenterContainer/VBoxContainer/HBoxContainer/ClickMouse" unique_id=792216532 instance=ExtResource("2_l4ig1")]
+custom_minimum_size = Vector2(88, 144)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_dikor")
+button = 1
+mouse_textures = SubResource("Resource_itdpd")
+
+[node name="Escape" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer" unique_id=1623325625]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer/Escape" unique_id=1988912784]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Pause Game"
+horizontal_alignment = 1
+
+[node name="Key" parent="CenterContainer/VBoxContainer/HBoxContainer/Escape" unique_id=1742768489 instance=ExtResource("2_i6w42")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+key = 4194305
