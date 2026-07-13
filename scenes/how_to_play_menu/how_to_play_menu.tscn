@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bqdfr5apiqdw4"]
 
+[ext_resource type="StyleBox" uid="uid://dojacx4d1ek8s" path="res://assets/panel_backgrounds.tres" id="1_dikor"]
 [ext_resource type="Script" uid="uid://n4htfoxb2d2v" path="res://components/nodes/controls/buttons/scene_button.gd" id="1_w3542"]
 [ext_resource type="PackedScene" uid="uid://b4j0v7dykru0g" path="res://components/nodes/controls/panel/key/key.tscn" id="2_i6w42"]
 [ext_resource type="PackedScene" uid="uid://b7bt0d0ngoslo" path="res://components/nodes/controls/texture_rect/mouse/mouse.tscn" id="2_l4ig1"]
@@ -16,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_dikor")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=821622537]
 top_level = true

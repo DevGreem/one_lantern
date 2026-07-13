@@ -6,9 +6,7 @@ func _input(event: InputEvent):
 	
 	if not get_tree().paused or _paused_by_self:
 		if event.is_action_pressed("pause"):
-			if self.visible:
-				_on_resume_button_pressed()
-			else:
+			if not self.visible:
 				get_tree().paused = true
 				show()
 				_paused_by_self = true

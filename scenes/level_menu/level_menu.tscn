@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://csw2gi3sfvjoo"]
 
+[ext_resource type="StyleBox" uid="uid://dojacx4d1ek8s" path="res://assets/panel_backgrounds.tres" id="1_hcm4l"]
 [ext_resource type="Script" uid="uid://n4htfoxb2d2v" path="res://components/nodes/controls/buttons/scene_button.gd" id="1_ikv47"]
 [ext_resource type="PackedScene" uid="uid://dxenmnhxqslt1" path="res://scenes/level_menu/level_selector.tscn" id="1_wt4pq"]
 
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_hcm4l")
 
 [node name="Container" type="CenterContainer" parent="." unique_id=1603269898]
 layout_mode = 1
