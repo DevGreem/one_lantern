@@ -22,11 +22,16 @@ func _ready():
 	update()
 	
 	print(ENTITIES.get_all_string_ids())
-	IDS = ENTITIES.filter(&"spawneable_in",
-		func(val: Array[StringName]):
-			return level.info.id in val
-	)
+	print("Getting enemies to spawn...")
+	IDS = ENTITIES.filter(&"spawneable_in", Callable(self, "_filter_by_level"))
 	print(IDS)
+
+func _filter_by_level(val: Array) -> bool:
+	
+	if level and level.info:
+		return level.info.id in val
+	
+	return false
 
 func update() -> void:
 	
